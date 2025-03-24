@@ -79,26 +79,54 @@ func IfElse() {
 	// Declaring Variables
 	x, y, z := 1, 1, 1
 
-	// If Else
+	// If-Else
 	if x == y {
-		fmt.Println("x == y")
+		fmt.Println("x == y") // Output: x == y
 	} else {
 		fmt.Println("x != y")
 	}
 
-	// Else If
+	// Else-If
 	if x == y {
-		fmt.Println("x == y")
+		fmt.Println("x == y") // Output: x == y
 	} else if x == z {
 		fmt.Println("x == z")
 	}
 
-	// Else-If Else
+	// Else-If (With Else)
 	if x == y {
-		fmt.Println("x == y")
+		fmt.Println("x == y") // Output: x == y
 	} else if x == z {
 		fmt.Println("x == z")
 	} else {
 		fmt.Println("x != y && x != z")
+	}
+
+	// Else-If (With Switch)
+	// A switch statement without an expression have the same behavior of a Else-If
+	switch {
+	case x == y:
+		fmt.Println("x == y") // Output: x == y
+	case x == z:
+		fmt.Println("x == z")
+	default:
+		fmt.Println("x != y && x != z")
+	}
+}
+
+// If With Declaration
+// We can declare variables inside the if condition.
+func IfWIthDeclaration() {
+
+	// If with Declaration
+	// We can declare a variable inside the if condition.
+	if x := true; x {
+		fmt.Println("x is true")
+	}
+
+	// If with multiple declarations
+	// We can declare multiple variables inside the if condition.
+	if x, y := 1, 2; x < y {
+		fmt.Println("x is less than y")
 	}
 }

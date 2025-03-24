@@ -8,9 +8,15 @@ package datatypes
 
 import "fmt"
 
-// Void Function
-// A function that does not return values.
-func Func() {
+// Private Function
+// Functions with the name not capitalized are private functions
+func privateFunc() {
+}
+
+// Public Function
+// Functions with the name capitalized are public functions
+func PublicFunc() {
+	privateFunc() // Can only be called inside this package
 }
 
 // Function With Parameters

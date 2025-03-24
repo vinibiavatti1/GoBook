@@ -64,14 +64,3 @@ const (
 	E7 = iota // 4 (iota continues incrementing)
 	F7        // 5
 )
-
-// Using Iota Inside a Function
-// Iota behaves the same way inside functions: it starts at 0.
-func IotaInsideFunction() {
-	const (
-		A8 = iota // 0
-		B8        // 1
-		C8        // 2
-	)
-	_, _, _ = A8, B8, C8
-}

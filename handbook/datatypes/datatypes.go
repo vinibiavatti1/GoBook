@@ -61,7 +61,7 @@ func Function(x, y int) int {
 }
 
 // Struct
-type Person struct {
+type User struct {
 	Name string
 }
 

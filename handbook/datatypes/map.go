@@ -6,6 +6,7 @@ package datatypes
 import "fmt"
 
 // Declaring Maps
+// This function demonstrates different ways to declare and initialize maps in Go.
 func DeclaringMaps() {
 
 	// Declaring an Empty Map
@@ -47,7 +48,7 @@ func ManipulatingMaps() {
 	fmt.Println(mp) // Output: map[A:9, B:2, C:3]
 
 	// Deleting Elements
-	// We can use the built-in function "delete()" to delete keys from a map
+	// The "delete" function removes a key-value pair from the map.
 	delete(mp, "A")
 	fmt.Println(mp) // Output: map[B:2, C:3]
 }

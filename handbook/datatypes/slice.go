@@ -15,11 +15,11 @@ func DeclaringSlices() {
 
 	// Declaring a Slice with Default Values
 	slc1 := []int{}
-	fmt.Println("Default slice:", slc1) // Output: []
+	fmt.Println(slc1) // Output: []
 
 	// Declaring a Slice with Predefined Values
 	slc2 := []int{1, 2, 3}
-	fmt.Println("Predefined slice:", slc2) // Output: [1 2 3]
+	fmt.Println(slc2) // Output: [1 2 3]
 }
 
 // Manipulating Slices
@@ -31,21 +31,32 @@ func ManipulatingSlices() {
 
 	// Accessing Elements
 	el := slc[1]
-	fmt.Println("Accessed element:", el) // Output: B
+	fmt.Println(el) // Output: B
 
 	// Getting Length
 	ln := len(slc)
-	fmt.Println("Slice length:", ln) // Output: 3
+	fmt.Println(ln) // Output: 3
 
 	// Adding Elements
 	// The built-in "append()" function is used to add elements to a slice dynamically.
 	slc = append(slc, "D")
-	fmt.Println("Slice after append:", slc) // Output: [A Z C D]
+	fmt.Println(slc) // Output: [A Z C D]
 
 	// Adding Multiple Elements
 	// We can add more than 1 value using "append()"
 	slc = append(slc, "E", "F", "G")
-	fmt.Println("Slice after multiple appends:", slc) // Output: [A Z C D E F G]
+	fmt.Println(slc) // Output: [A Z C D E F G]
+
+	// Resetting Elements
+	// We can use the "clear" function to reset all elements of a slice to its default value.
+	slc2 := []int{1, 2, 3}
+	clear(slc2)
+	fmt.Println(slc2) // Output: [0 0 0]
+
+	// Clearing Slice
+	// We can clear all elements from a slice by setting the slice using an empty range.
+	slc = slc[0:0]
+	fmt.Println(slc) // Output: []
 }
 
 // Iterating Over Slices
@@ -77,5 +88,5 @@ func UnpackingSlices() {
 	// Unpacking Slices
 	// We can use "..." to unpack slices into variadic functions
 	slc3 := append(slc1, slc2...)
-	fmt.Println("Unpacked slice:", slc3) // Output: [A B C D]
+	fmt.Println(slc3) // Output: [A B C D]
 }

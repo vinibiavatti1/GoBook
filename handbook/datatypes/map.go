@@ -51,6 +51,11 @@ func ManipulatingMaps() {
 	// The "delete" function removes a key-value pair from the map.
 	delete(mp, "A")
 	fmt.Println(mp) // Output: map[B:2, C:3]
+
+	// Clearing Map
+	// We can clear all keys from a map by using the "clear" function.
+	clear(mp)
+	fmt.Println(mp) // Output: map[]
 }
 
 // Iterating Over Maps

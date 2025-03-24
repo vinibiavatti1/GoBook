@@ -1,10 +1,10 @@
 package main
 
 import (
-	"handbook/datatypes"
+	"handbook/lib"
 )
 
 func main() {
 	// Call here the function to see the results!
-	datatypes.UsingStructTags()
+	lib.BuiltinFunctions()
 }

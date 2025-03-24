@@ -1,6 +1,5 @@
 // Type
-// The "type" keyword is used to declare new types, or to declare aliases for
-// existent types.
+// The "type" keyword is used to declare new types or create aliases for existing types.
 // Syntax:
 //   type <name> <type>
 
@@ -9,31 +8,31 @@ package statements
 import "fmt"
 
 // Declaring Structs
-// We can use "type" to declare structs.
+// We use "type" to declare structs.
 type Person struct{}
 
 // Declaring Interfaces
-// We can use "type" to declare interfaces.
+// Interfaces define a set of methods that a type must implement.
 type Handler interface{}
 
 // Declaring Function Signature
-// We can use "type" to declare a function signature.
+// "type" can be used to define function signatures.
 type Sum func(x, y int) int
 
 // Declaring Array Signature
-// We can use "type" to declare new array signatures.
+// "type" can be used to create new names for fixed-size arrays.
 type Point [2]int
 
 // Declaring Slice Signature
-// We can use "type" to declare new slice signatures.
+// We can create custom names for slices.
 type Collection []any
 
 // Declaring Map Signature
-// We can use "type" to declare new map signatures.
+// We create custom names for maps.
 type Dictionary map[any]any
 
 // Declaring Aliases
-// We use "type" to declare aliases for existent types.
+// We create an alias for an existing type.
 type Number float64
 
 // Using Declared Types
@@ -42,11 +41,11 @@ func UsingDeclaredTypes() {
 
 	// Using Declared Struct
 	person := &Person{}
-	fmt.Println(person) // Output: Person{}
+	fmt.Println(person) // Output: &{}
 
 	// Using Declared Interface
 	var handler Handler = &Person{}
-	fmt.Println(handler) // Output: Person{}
+	fmt.Println(handler) // Output: &{}
 
 	// Using Declared Function
 	var sum Sum = func(x, y int) int {
@@ -56,7 +55,7 @@ func UsingDeclaredTypes() {
 
 	// Using Declared Array
 	p := Point{1, 2}
-	fmt.Println(p) // Output: [1, 2]
+	fmt.Println(p) // Output: [1 2]
 
 	// Using Declared Slice
 	c := Collection{"A", "B", "C"}
@@ -64,7 +63,7 @@ func UsingDeclaredTypes() {
 
 	// Using Declared Map
 	d := Dictionary{"A": 1}
-	fmt.Println(d) // Output: {"A": 1}
+	fmt.Println(d) // Output: map[A:1]
 
 	// Using Declared Alias
 	var n Number = 3.14

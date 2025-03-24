@@ -6,5 +6,5 @@ import (
 
 func main() {
 	// Call here the function to see the results!
-	datatypes.DeclaringMaps()
+	datatypes.UsingStructTags()
 }

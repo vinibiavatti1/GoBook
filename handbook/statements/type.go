@@ -3,7 +3,7 @@
 // Syntax:
 //   type <name> <type>
 
-package statements
+package datatypes
 
 import "fmt"
 

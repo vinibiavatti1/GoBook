@@ -56,7 +56,7 @@ func ManipulatingArrays() {
 	// Retrieving Length
 	// We can get the length of an array using the "len()" builtin function.
 	l := len(x)
-	fmt.Println("len:", l) // Output: 3
+	fmt.Println("Len:", l) // Output: Len: 3
 
 	// Mutating Elements
 	// We can mutate elements using indexes [i].

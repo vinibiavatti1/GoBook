@@ -1,11 +1,11 @@
 // Operators
 // Go provides a rich set of operators to work with different types of data:
-// 1. Arithmetic Operators: +, -, *, /, %
-// 2. Assignment Operators: =, +=, -=, *=, /=, %=
-// 3. Comparison Operators: ==, !=, >, <, >=, <=
-// 4. Logical Operators: &&, ||, !
-// 5. Address Operators: & *
-// 6. Bitwise Operators: &, |, ^, <<, >>
+// - Arithmetic Operators: +, -, *, /, %
+// - Assignment Operators: =, +=, -=, *=, /=, %=
+// - Comparison Operators: ==, !=, >, <, >=, <=
+// - Logical Operators:    &&, ||, !
+// - Address Operators:    & *
+// - Bitwise Operators:    &, |, ^, <<, >>
 
 package expressions
 
@@ -17,14 +17,15 @@ import "fmt"
 func ArithmeticOperators() {
 
 	// Creating variables
+	// We will use these variables to demonstrate arithmetic operators.
 	x, y := 10, 5
 
 	// Arithmetic Operators
-	_ = x + y // Addition (15)
-	_ = x - y // Subtraction (5)
-	_ = x * y // Multiplication (50)
-	_ = x / y // Division (2)
-	_ = x % y // Modulo (Remainder) (0)
+	_ = x + y // 15 Addition
+	_ = x - y // 5  Subtraction
+	_ = x * y // 50 Multiplication
+	_ = x / y // 2  Division
+	_ = x % y // 0  Modulo (Remainder)
 }
 
 // Assignment Operators
@@ -32,15 +33,16 @@ func ArithmeticOperators() {
 func AssignmentOperators() {
 
 	// Creating variables
+	// We will use these variables to demonstrate assignment operators.
 	x := 10
 
 	// Assignment Operators
-	x = 20 // Assignment (20)
-	x += 5 // Add and Assign (25)
-	x -= 3 // Subtract and Assign (22)
-	x *= 2 // Multiply and assign (44)
-	x /= 4 // Divide and assign (11)
-	x %= 3 // Modulo and assign (2)
+	x = 20 // 20 Assignment
+	x += 5 // 25 Add and Assign
+	x -= 3 // 22 Subtract and Assign
+	x *= 2 // 44 Multiply and Assign
+	x /= 4 // 11 Divide and assign
+	x %= 3 // 2  Modulo and assign
 }
 
 // Comparison Operators
@@ -48,15 +50,16 @@ func AssignmentOperators() {
 func ComparisonOperators() {
 
 	// Creating variables
+	// We will use these variables to demonstrate comparison operators.
 	x, y := 10, 5
 
-	// Equal to
-	_ = x == y // Equal (false)
-	_ = x != y // Not Equal (true)
-	_ = x > y  // Greater Than (true)
-	_ = x < y  // Less Than (false)
-	_ = x >= y // Greater Than or Equal To (true)
-	_ = x <= y // Less Than or Equal To (false)
+	// Comparison Operators
+	_ = x == y // false Equal
+	_ = x != y // true  Not Equal
+	_ = x > y  // true  Greater Than
+	_ = x < y  // false Less Than
+	_ = x >= y // true  Greater Than or Equal To
+	_ = x <= y // false Less Than or Equal To
 }
 
 // Logical Operators
@@ -64,27 +67,32 @@ func ComparisonOperators() {
 func LogicalOperators() {
 
 	// Creating boolean variables
+	// We will use these variables to demonstrate logical operators.
 	x, y := true, false
 
-	_ = x && y // AND (false)
-	_ = x || y // OR (true)
-	_ = !x     // NOT (false)
+	// Logical Operators
+	_ = x && y // false AND
+	_ = x || y // true  OR
+	_ = !x     // false NOT
 }
 
 // Address Operators
 // These operators are used to get the memory address of a variable
-// (using &) and to dereference pointers (using *).
+// (using "&") and to dereference pointers (using "*").
 func AddressOperators() {
 
 	// Creating a variable
+	// We will use this variable to demonstrate address operators.
 	x := 10
 
-	// Getting the memory address of 'a' (address operator)
+	// Creating a pointer
+	// Getting the memory address of "a" (address operator "&")
 	ptr := &x
-	fmt.Println(ptr) // Output: 0xc000067f30
+	fmt.Println("Address:", ptr) // Output: Address: 0xc000067f30
 
-	// Dereferencing the pointer (dereference operator)
-	fmt.Println(*ptr) // Output: 10
+	// Dereferencing a Pointer
+	// Getting the value stored at the memory address (dereference operator "*")
+	fmt.Println("Value:", *ptr) // Output: Value: 10
 }
 
 // Bitwise Operators
@@ -92,13 +100,14 @@ func AddressOperators() {
 func BitwiseOperators() {
 
 	// Creating variables
-	x := 60 // (0011 1100) in binary
-	y := 13 // (0000 1101) in binary
+	// We will use these variables to demonstrate bitwise operators.
+	x := 60 // 0011 1100
+	y := 13 // 0000 1101
 
-	// AND
-	_ = x & y  // AND (0000 1100)
-	_ = x | y  // OR (0011 1101)
-	_ = x ^ y  // XOR (0011 0001)
-	_ = x << 2 // Left Shift (1111 0000)
-	_ = x >> 2 // Right Shift (0000 1111)
+	// Bitwise Operators
+	_ = x & y  // 0000 1100 AND
+	_ = x | y  // 0011 1101 OR
+	_ = x ^ y  // 0011 0001 XOR
+	_ = x << 2 // 1111 0000 Left Shift
+	_ = x >> 2 // 0000 1111 Right Shift
 }

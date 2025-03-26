@@ -7,11 +7,11 @@ package library
 import "fmt"
 
 // Builtin Functions
-// The function below shows examples of all builtin functions
+// The function below shows examples of all builtin functions.
 func BuiltinFunctions() {
 
 	// Append
-	// ...
+	// The append built-in function appends elements to the end of a slice.
 	// Signature: append(slice []Type, elems ...Type) []Type
 	slc := []string{"A", "B"}
 	slc = append(slc, "C", "D")
@@ -72,8 +72,8 @@ func BuiltinFunctions() {
 	// The imag built-in function returns the imaginary part of the complex number.
 	// Signature: imag(c ComplexType) FloatType
 	c = 1 + 2i
-	imaginary := imag(c)
-	fmt.Println(imaginary) // Output: 2
+	imagPart := imag(c)
+	fmt.Println(imagPart) // Output: 2
 
 	// Len
 	// The len built-in function returns the length of v, according to its type:
@@ -123,12 +123,13 @@ func BuiltinFunctions() {
 
 	// Print
 	// The print built-in function formats its arguments in an implementation-specific way and writes the result to standard error.
-	// NOTE: Print is useful for bootstrapping and debugging. It is preferred to use fmt package for formatted I/O.
+	// Note: Print is useful for bootstrapping and debugging. It is preferred to use fmt package for print operations.
 	// Signature: print(args ...Type)
 	print("Hello, World!")
 
 	// PrintLn
 	// Similar to print, but appends a newline character at the end.
+	// Note: PrintLn is useful for bootstrapping and debugging. It is preferred to use fmt package for print operations.
 	// Signature: println(args ...Type)
 	println("Hello, World!")
 

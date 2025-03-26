@@ -58,7 +58,7 @@ func ManipulatingMaps() {
 	// Retrieving Length
 	// We can get the number of key-value pairs in a map using the "len()" function.
 	l := len(x)
-	fmt.Println("len:", l) // Output: len: 3
+	fmt.Println("Len:", l) // Output: Len: 3
 
 	// Adding Elements
 	// We can add key-value pairs to a map by assigning a value to a new key.

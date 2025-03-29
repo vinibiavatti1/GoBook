@@ -7,7 +7,7 @@
 // - Address Operators:    & *
 // - Bitwise Operators:    &, |, ^, <<, >>
 
-package expressions
+package syntax
 
 import "fmt"
 

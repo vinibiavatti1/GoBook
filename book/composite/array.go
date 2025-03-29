@@ -28,6 +28,17 @@ func DeclaringArrays() {
 	// number of elements.
 	x = [...]int{1, 2, 3}
 	fmt.Println("x:", x, "len:", len(x)) // Output: x: [1 2 3] len: 3
+
+	// Declaring an Array Specifying Values by Index (:)
+	// We can specify values by index during the initialization by using the ":" operator.
+	x = [3]int{0: 1, 2: 3} // x[0] = 1, x[2] = 3
+	fmt.Println("x:", x)   // Output: x: [1 0 3]
+
+	// Declaring an Array of "any" Type
+	// We can declare an array of type "any" to store values of any type.
+	// The "any" type is equivalent to the "interface{}" type in Go.
+	y := [3]any{1, "Hello", true}
+	fmt.Println("y:", y) // Output: y: [1 Hello true]
 }
 
 // Manipulating Arrays

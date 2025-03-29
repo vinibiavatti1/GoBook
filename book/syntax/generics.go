@@ -1,7 +1,7 @@
 // Generics
 // TODO
 
-package statements
+package syntax
 
 // Type Sets
 type Numbera interface {

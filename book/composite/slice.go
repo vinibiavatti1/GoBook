@@ -22,6 +22,22 @@ func DeclaringSlices() {
 	// We can initialize the slice with predefined values.
 	x = []int{1, 2, 3}
 	fmt.Println("x:", x) // Output: [1 2 3]
+
+	// Declaring a Slice Specifying Values by Index (:)
+	// We can specify values by index during the initialization by using the ":" operator.
+	x = []int{0: 1, 2: 3} // x[0] = 1, x[2] = 3
+	fmt.Println("x:", x)  // Output: x: [1 0 3]
+
+	// Declaring a Slice with Predefined Length
+	// For this, we can use the "make()" function.
+	x = make([]int, 3)
+	fmt.Println("x:", x) // Output: [0 0 0]
+
+	// Declaring a Slice of "any" Type
+	// We can declare a slice of type "any" to store values of any type.
+	// The "any" type is equivalent to the "interface{}" type in Go.
+	y := []any{1, "Hello", true}
+	fmt.Println("y:", y) // Output: y: [1 Hello true]
 }
 
 // Manipulating Slices

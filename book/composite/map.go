@@ -28,6 +28,15 @@ func DeclaringMaps() {
 		"B": 2,
 	}
 	fmt.Println("x:", x) // Output: x: map[A:1 B:2]
+
+	// Declaring a Map of "any" Type
+	// We can declare a map where the key and value types are of type "any".
+	// The "any" type is equivalent to the "interface{}" type in Go.
+	y := map[any]any{
+		"A": 1,
+		3.4: true,
+	}
+	fmt.Println("y:", y) // Output: y: map[A:1 3.4:true]
 }
 
 // Manipulating Maps

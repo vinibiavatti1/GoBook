@@ -37,4 +37,7 @@ var (
 	// Complex
 	_ complex64  = 1 + 2i // 32-bit real and imaginary parts
 	_ complex128 = 1 + 2i // 64-bit real and imaginary parts (default)
+
+	// Any
+	_ any = 1 // Any stores values of any type
 )

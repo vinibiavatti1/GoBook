@@ -11,6 +11,7 @@ import "fmt"
 func DeclaringBooleans() {
 
 	// Creating Booleans
+	// Booleans can have the values: true or false.
 	x := true
 	y := false
 	fmt.Println("Boolean values:", x, y) // Output: Boolean values: true false

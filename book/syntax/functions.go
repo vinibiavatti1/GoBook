@@ -4,7 +4,7 @@
 // Syntax:
 //   func <name>(<parameters> <type>...) <return> {...}
 
-package statements
+package syntax
 
 import "fmt"
 

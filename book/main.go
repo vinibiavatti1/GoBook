@@ -10,74 +10,133 @@ package main
 import (
 	"book/composite"
 	"book/datatypes"
-	"book/expressions"
-	"book/statements"
-	"fmt"
+	"book/enums"
+	"book/syntax"
 )
 
 // Main function
+// Uncomment the lines below to run the examples in this file.
 func main() {
-	// datatypes/bool.go
-	fmt.Println("> datatypes/bool.go")
+
+	/*
+		Datatypes
+	*/
+
+	// Datatypes - Bool
 	datatypes.DeclaringBooleans()
 
-	// datatypes/string.go
-	fmt.Println("> datatypes/string.go")
+	// Datatypes - String
 	datatypes.DeclaringStrings()
 	datatypes.ManipulatingStrings()
 
-	// datatypes/int.go
-	fmt.Println("> datatypes/int.go")
+	// Datatypes - Int
 	datatypes.DeclaringIntegers()
 	datatypes.IntegerOperations()
 	datatypes.IntegerConversions()
 
-	// datatypes/float.go
-	fmt.Println("> datatypes/float.go")
+	// Datatypes - Float
 	datatypes.DeclaringFloats()
 	datatypes.FloatOperations()
 	datatypes.FloatConversion()
 
-	// datatypes/complex.go
-	fmt.Println("> datatypes/complex.go")
+	// Datatypes - Complex
 	datatypes.DeclaringComplexNumbers()
 	datatypes.ManipulatingComplexNumbers()
 	datatypes.ComplexNumberOperations()
 	datatypes.ComplexNumbersConversion()
 
-	// composite/array.go
-	fmt.Println("> composite/array.go")
+	// Datatypes - Any
+	datatypes.DeclaringAnyType()
+
+	// Datatypes - Pointer
+	datatypes.UsingPointers()
+
+	/*
+		Composite
+	*/
+
+	// Composite - Array
 	composite.DeclaringArrays()
 	composite.ManipulatingArrays()
 
-	// composite/slice.go
-	fmt.Println("> composite/slice.go")
+	// Composite - Slice
 	composite.DeclaringSlices()
 	composite.ManipulatingSlices()
 
-	// composite/map.go
-	fmt.Println("> composite/map.go")
+	// Composite - Map
 	composite.DeclaringMaps()
 	composite.ManipulatingMaps()
 
-	// expressions/operators.go
-	fmt.Println("> expressions/operators.go")
-	expressions.ArithmeticOperators()
-	expressions.AssignmentOperators()
-	expressions.ComparisonOperators()
-	expressions.LogicalOperators()
-	expressions.AddressOperators()
-	expressions.BitwiseOperators()
+	// Composite - Matrix
+	composite.DeclaringMatrices()
+	composite.ManipulatingMatrices()
 
-	// statements/var.go
-	fmt.Println("> statements/var.go")
-	statements.DeclaringVariables()
+	/*
+		Syntax
+	*/
 
-	// statements/const.go
-	fmt.Println("> statements/const.go")
-	statements.DeclaringConstants()
+	// Syntax - Operators
+	syntax.ArithmeticOperators()
+	syntax.AssignmentOperators()
+	syntax.ComparisonOperators()
+	syntax.LogicalOperators()
+	syntax.AddressOperators()
+	syntax.BitwiseOperators()
 
-	// statements/comments.go
-	fmt.Println("> statements/comments.go")
-	statements.GoDocExample()
+	// Syntax - Var
+	syntax.DeclaringVariables()
+
+	// Syntax - Const
+	syntax.DeclaringConstants()
+
+	// Syntax - Iota
+	syntax.UsingIotaInFunctions()
+
+	// Syntax - Comments
+	syntax.GoDocExample()
+
+	// Syntax - If
+	syntax.IfWithComparisonOperators()
+	syntax.IfWithLogicalOperators()
+	syntax.IfElse()
+	syntax.IfWithDeclarations()
+
+	// Syntax - For
+	syntax.CreatingLoops()
+	syntax.ControllingLoops()
+	syntax.IteratingOverData()
+
+	// Syntax - Switch
+	syntax.Switches()
+
+	// Syntax - GoTo
+	syntax.SimpleGoto()
+	syntax.LoopWithGoto()
+	syntax.ErrorHandlingWithGoto()
+	syntax.BreakingOutLoops()
+
+	// Syntax - Functions
+	syntax.LambdaFunctions()
+	syntax.UsingClosures()
+
+	// Syntax - Type
+	syntax.UsingDeclaredTypes()
+
+	// Syntax - Defer
+	syntax.PerformDefer()
+	syntax.PerformMultipleDefers()
+	syntax.PerformDeferArguments()
+	syntax.PerformDeferLoop()
+	syntax.PerformDeferFunction()
+	syntax.PerformDeferNamedReturn()
+
+	// Syntax - Recursion
+	syntax.PerformRecursiveFactorial()
+
+	/*
+		Enums
+	*/
+
+	// Enums - Enum
+	enums.UsingEnum()
 }

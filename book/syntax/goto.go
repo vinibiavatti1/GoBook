@@ -6,7 +6,7 @@
 //   goto <label>
 //   <label>:
 
-package statements
+package syntax
 
 import "fmt"
 
@@ -30,7 +30,7 @@ repeat:
 	if x < 3 {
 		goto repeat // Jumps back to "repeat" label, acting like a loop
 	}
-	// Output: Iteration: 0 \n Iteration: 1 \n Iteration: 2
+	// Output: Iteration: 0, Iteration: 1, Iteration: 2
 }
 
 // Using Goto for Error Handling
@@ -38,17 +38,18 @@ repeat:
 func ErrorHandlingWithGoto() {
 	err := false
 	if err {
-		goto handleError
+		goto err
 	}
 	fmt.Println("Operation successful")
 	return
-handleError:
+err:
 	fmt.Println("An error occurred. Handling error...")
 	// Output (if err = true): An error occurred. Handling error...
 }
 
 // Breaking Out of Loops
-// Goto can be used to break out of loops, unlike "break", which only exits the current loop.
+// Goto can be used to break out of loops.
+// It is useful for breaking out of deeply nested loops for example.
 func BreakingOutLoops() {
 	for i := range 10 {
 		if i == 3 {

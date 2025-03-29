@@ -7,7 +7,7 @@
 // Global variables can be accessed by any function inside the package.
 // Note: In Go, an unused variable results in a compilation error
 
-package statements
+package syntax
 
 import "fmt"
 

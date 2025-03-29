@@ -3,7 +3,7 @@
 // Syntax:
 //   type <name> <type>
 
-package statements
+package syntax
 
 import "fmt"
 
@@ -68,4 +68,19 @@ func UsingDeclaredTypes() {
 	// Using Declared Alias
 	var n Number = 3.14
 	fmt.Println(n) // Output: 3.14
+}
+
+// Local Types
+// Local types are types that are declared within a function scope.
+func LocalTypes() {
+
+	// Declaring Local Type
+	// We can declare a type within a function.
+	// This type is not accessible outside the function.
+	type value int
+
+	// Using Local Type
+	// We can use the local type within the function.
+	var v value = 42
+	fmt.Println(v) // Output: 42
 }

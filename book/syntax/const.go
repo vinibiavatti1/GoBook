@@ -7,7 +7,7 @@
 // - Declaring multiple constants in a single line
 // Note: The value of a constant must be determinable at compile time.
 
-package statements
+package syntax
 
 import "fmt"
 

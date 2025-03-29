@@ -78,7 +78,7 @@ func UsingStructs() {
 	// Calling Methods
 	// Calling the "FullName" method associated to the employee.
 	fullname := employee2.FullName()
-	fmt.Println(fullname) // Output: John Duo
+	fmt.Println("fullname:", fullname) // Output: fullname: JohnDuo
 
 	// Acessing Private Data
 	// Since the "Surname" field is private, it can be accessed only by public methods
@@ -89,7 +89,31 @@ func UsingStructs() {
 	// Mutating Data
 	// Changing the "Notes" field of the "Employee" struct.
 	employee1.Salary = 2500.0
-	fmt.Println(employee1.Salary) // Output: 2500.0
+	fmt.Println("Salary:", employee1.Salary) // Output: Salary: 2500.0
+
+	// Anonymous Structs
+	// Anonymous structs are structs without a name.
+	// If we don't need to reuse a struct, we can define and create an instance at the same time.
+	person := struct {
+		Name string
+	}{
+		Name: "John Duo",
+	}
+	fmt.Println("person:", person) // Output: person: {John Duo}
+
+	// Local Structs
+	// We can define a struct inside a function.
+	// This struct will only be available inside the function.
+	type user struct {
+		Name string
+	}
+
+	// Creating an Instance of Local Struct
+	// The local struct is only available inside the function
+	_user := &user{
+		Name: "John Duo",
+	}
+	fmt.Println("otherPerson:", _user) // Output: otherPerson: {John Duo}
 }
 
 // Struct Tags

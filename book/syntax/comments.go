@@ -7,12 +7,12 @@
 // - Constants (Before the constant declaration)
 // - Types     (Before the type declaration)
 
-package statements
+package syntax
 
-// Single-line comments start with // and continue until the end of the line.
+// Single Line - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 /*
-Multi-line comments start with /* and end with * /.
+   Multi Line - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 */
 
 // GoDoc comments describe the purpose of Go resources.

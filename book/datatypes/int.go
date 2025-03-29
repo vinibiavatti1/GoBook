@@ -18,34 +18,34 @@ func DeclaringIntegers() {
 	x := 1
 	fmt.Println("x:", x) // Output: x: 1
 
-	// CreDeclaringating an Integer Using Binary Notation
+	// Declaring an Integer Using Binary Notation
 	// We can use the "0b<n>" notation to define integers in binary.
-	x = 0b1010           // 10
+	x = 0b1010           // Same as x = 10
 	fmt.Println("x:", x) // Output: x: 10
 
 	// Declaring an Integer Using Hexadecimal Notation
 	// We can use the "0x<n>" notation to define integers in hexdecimal.
-	x = 0xFFF
+	x = 0xFFF            // Same as x = 4095
 	fmt.Println("x:", x) // Output: x: 4095
 
 	// Declaring an Integer Using Octal Notation
 	// We can use the "0o<n>" notation to define integers in octal.
-	x = 0o777
+	x = 0o777            // Same as x = 511
 	fmt.Println("x:", x) // Output: x: 511
 
 	// Declaring an Integer Using a Rune
 	// Since a rune is an alias for int32, we can use it to represent integers.
 	// A rune is a Unicode code point.
-	x = 'A'
+	x = 'A'              // Same as x = 65
 	fmt.Println("x:", x) // Output: x: 65
 
 	// Declaring an Integer Using Underscores
 	// We can use the underscore "_" to separate digits and improve readability.
-	x = 100_000_000
+	x = 100_000_000      // Same as x = 100000000
 	fmt.Println("x:", x) // Output: x: 100000000
 
-	// Declaring an Integer From Expression
-	// We can create integers from expressions.
+	// Declaring an Computed Integer
+	// We can create integers from expressions which will be computed to generate the result.
 	x = 2 + 3*4
 	fmt.Println("x:", x) // Output: x: 14
 

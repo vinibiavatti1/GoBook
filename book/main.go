@@ -133,6 +133,13 @@ func main() {
 	// Syntax - Recursion
 	syntax.PerformRecursiveFactorial()
 
+	// Syntax - Generics
+	syntax.PerformSumNumbers()
+	syntax.PerformSumAnyNumbers()
+	syntax.PerformSumNumerics()
+	syntax.UsingGenericStruct()
+	syntax.PerformSumMap()
+
 	/*
 		Enums
 	*/

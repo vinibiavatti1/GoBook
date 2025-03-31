@@ -9,6 +9,7 @@ package main
 
 import (
 	"book/composite"
+	"book/concurrency"
 	"book/datatypes"
 	"book/enums"
 	"book/syntax"
@@ -146,4 +147,16 @@ func main() {
 
 	// Enums - Enum
 	enums.UsingEnum()
+
+	/*
+		Concurrency
+	*/
+
+	// Concurrency - Concurrency
+	concurrency.StartGoroutines()
+	concurrency.CommunicatingWithChannels()
+	concurrency.UsingMultipleChannels()
+	concurrency.SkipChannelWaiting()
+	concurrency.UnbufferedChannels()
+	concurrency.BufferedChannels()
 }

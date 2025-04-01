@@ -30,6 +30,7 @@ type Employee struct {
 // Constructors
 // Constructors are methods responsible for creating struct instances.
 // Usually, constructors have their name with the "New" prefix.
+// They are used to initialize the struct fields and return a pointer to the struct.
 func NewEmployee(name, surname string, salary float64) *Employee {
 	return &Employee{
 		Person: &Person{
@@ -43,12 +44,20 @@ func NewEmployee(name, surname string, salary float64) *Employee {
 // Methods
 // Methods associate functions with a struct.
 // In this example, the method "FullName" is associated with the "Employee" struct and takes a pointer receiver (e *Employee).
-// The other "Surname" nmethod is associated with the "Person" struct to give access to the "surname" field.
 func (e *Employee) FullName() string {
 	return e.Name + e.surname
 }
-func (p *Person) Surname() string {
+
+// Getterns and Setters
+// Getters and setters are methods that allow access to private fields.
+// In this example, the "Name" method is a getter for the "name" field in the "Person" struct.
+// The "SetName" method is a setter for the "name" field.
+// Note: In Go, we don't use the "Get" prefix for getters.
+func (p *Person) Surname() string { // Getter
 	return p.surname
+}
+func (p *Person) SetSurname(surname string) { // Setter
+	p.surname = surname
 }
 
 // Using Structs

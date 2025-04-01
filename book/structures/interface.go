@@ -13,6 +13,11 @@ type Printer interface {
 	Print()
 }
 
+// Nil Interface
+// Go allows to assign nil to an interface.
+// This means that the interface does not hold any value.
+var _ Printer = nil
+
 // Defining a Struct
 // Methods are implemented on structs.
 type Data struct {

@@ -78,9 +78,9 @@ func IfWithLogicalOperators() {
 
 	// NOT Operator (!)
 	// The NOT operator (!) is used to negate a condition.
-	x, z = 1, 2
-	if !(x == z) {
-		fmt.Println("x != z") // Output: x != z
+	a := false
+	if !a {
+		fmt.Println("a == false") // Output: a == false
 	}
 }
 

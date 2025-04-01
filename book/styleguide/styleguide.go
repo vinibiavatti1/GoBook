@@ -15,8 +15,8 @@ import "fmt"
 
 // Public Modules
 // Characters: a-z, 0-9, /, .
-// Pattern: "github.com/username/repo"
-var _ = "github.com/username/repo"
+// Pattern: "github.com/<username>/<repo>"
+var _ = "github.com/john/myproject"
 
 // Private Modules
 // Characters: a-z, 0-9, /, .
@@ -30,6 +30,12 @@ var _ = "httphandler"
 // Characters: a-z, 0-9
 // Extension: .go
 var _ = "httphandler.go"
+
+// Test Files
+// Characters: a-z, 0-9
+// Extension: .go
+// Pattern: "<name>_test.go"
+var _ = "httphandler_test.go"
 
 // Packages
 // Characters: a-z, 0-9
@@ -64,11 +70,11 @@ func PerformOperation() {}
 
 // Structs
 // Characters: a-z, A-Z, 0-9
-type Person struct{}
+type Person struct{ name string }
 
 // Methods
 // Characters: a-z, A-Z, 0-9
-func (p *Person) GetName() {}
+func (p *Person) JobName() {}
 
 // Type Alias
 // Characters: a-z, A-Z, 0-9
@@ -76,7 +82,7 @@ type Number int
 
 // Interfaces
 // Characters: a-z, A-Z, 0-9
-type Reader interface{}
+type Reader interface{ Read() }
 
 // Special Names
 // The function below shows special variable names that are used in Go language.
@@ -138,3 +144,23 @@ func SpecialVariableNames() {
 /*
 	Section Comment
 */
+
+/*
+	Methods Convention
+*/
+
+// Method Receiver
+// The method receiver should be a pointer to the struct type.
+// The receiver name should be a single letter, preferably the first letter of the struct name.
+// If the struct name is various words, the receiver name should be the first letter of each word.
+func (p *Person) Surname() {}
+
+// Getters
+// Functions that return something are given noun-like names.
+// Don't use "Get" prefix.
+func (p *Person) Name() string { return p.name }
+
+// Setters
+// Functions that do something are given verb-like names.
+// For setters, we use "Set" prefix.
+func (p *Person) SetName(name string) { p.name = name }

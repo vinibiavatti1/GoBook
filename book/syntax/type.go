@@ -31,9 +31,16 @@ type Collection []any
 // We create custom names for maps.
 type Dictionary map[any]any
 
-// Declaring Aliases
-// We create an alias for an existing type.
+// Declaring New Type Based on Other Type
+// We can create a new type based on an existing type.
+// In this case, Number is not a float64, but a new type that is based on it.
 type Number float64
+
+// Declaring Alias
+// We can create an alias for an existing type.
+// Note: The "=" operator is used to define an alias.
+// In this case, Decimal is a float64 (same type).
+type Decimal = float64
 
 // Using Declared Types
 // This function shows examples of the usage of the types declared above.
@@ -65,9 +72,13 @@ func UsingDeclaredTypes() {
 	d := Dictionary{"A": 1}
 	fmt.Println(d) // Output: map[A:1]
 
-	// Using Declared Alias
+	// Using New Type
 	var n Number = 3.14
 	fmt.Println(n) // Output: 3.14
+
+	// Using Alias
+	var x Decimal = 3.14
+	fmt.Println(x) // Output: 3.14
 }
 
 // Local Types

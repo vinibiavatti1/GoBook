@@ -7,7 +7,10 @@
 
 package styleguide
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 /*
 	Naming Convention
@@ -76,13 +79,23 @@ type Person struct{ name string }
 // Characters: a-z, A-Z, 0-9
 func (p *Person) JobName() {}
 
-// Type Alias
+// New Type
 // Characters: a-z, A-Z, 0-9
 type Number int
+
+// Type Alias
+// Characters: a-z, A-Z, 0-9
+type Decimal = float64
 
 // Interfaces
 // Characters: a-z, A-Z, 0-9
 type Reader interface{ Read() }
+
+// Errors
+// Characters: a-z, A-Z, 0-9
+// Pattern: "Err<Name>"
+// Message: Not Capitalized
+var ErrNotFound = errors.New("not found")
 
 // Special Names
 // The function below shows special variable names that are used in Go language.

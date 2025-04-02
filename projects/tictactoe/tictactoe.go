@@ -11,11 +11,15 @@ import (
 )
 
 const (
-	Player1 string = "X"
-	Player2 string = "O"
-	Empty   string = " "
-	Len     int    = 3
-	Div     string = " | "
+	Len int    = 3
+	Div string = " | "
+)
+
+type Player string
+
+const (
+	Player1 Player = "X"
+	Player2 Player = "O"
 )
 
 type GameResult int
@@ -26,7 +30,7 @@ const (
 	Tie
 )
 
-var PositionMap = map[string][2]int{
+var positionMap = map[string][2]int{
 	"1": [...]int{0, 0},
 	"2": [...]int{0, 1},
 	"3": [...]int{0, 2},
@@ -38,9 +42,20 @@ var PositionMap = map[string][2]int{
 	"9": [...]int{2, 2},
 }
 
+var winningCombinations = [][Len]string{
+	{"1", "2", "3"},
+	{"4", "5", "6"},
+	{"7", "8", "9"},
+	{"1", "4", "7"},
+	{"2", "5", "8"},
+	{"3", "6", "9"},
+	{"1", "5", "9"},
+	{"3", "5", "7"},
+}
+
 type Game struct {
 	board         [Len][Len]string
-	currentPlayer string
+	currentPlayer Player
 }
 
 func NewGame() *Game {
@@ -52,53 +67,49 @@ func NewGame() *Game {
 }
 
 func (g *Game) Reset() {
-	g.board = [...][Len]string{
-		[...]string{"1", "2", "3"},
-		[...]string{"4", "5", "6"},
-		[...]string{"7", "8", "9"},
+	g.board = [Len][Len]string{
+		{"1", "2", "3"},
+		{"4", "5", "6"},
+		{"7", "8", "9"},
 	}
 }
 
 func (g *Game) Play(pos string) error {
-	coords, ok := PositionMap[pos]
+	coords, ok := positionMap[pos]
 	if !ok {
-		return fmt.Errorf("Invalid Position: %s", pos)
+		return fmt.Errorf("Invalid Position: %q", pos)
 	}
 	x, y := coords[0], coords[1]
 	boardpos := g.board[x][y]
-	if boardpos == Player1 || boardpos == Player2 {
+	if boardpos == string(Player1) || boardpos == string(Player2) {
 		return fmt.Errorf("Position is not empty")
 	}
-	g.board[x][y] = g.currentPlayer
+	g.board[x][y] = string(g.currentPlayer)
 	return nil
 }
 
 func (g *Game) SwapCurrentPlayer() {
 	if g.currentPlayer == Player1 {
 		g.currentPlayer = Player2
-	} else {
-		g.currentPlayer = Player1
+		return
 	}
+	g.currentPlayer = Player1
 }
 
 func (g *Game) ValidateWinner() bool {
-	won := false
-	won = won || g.IsSamePlayerInPositions("1", "2", "3")
-	won = won || g.IsSamePlayerInPositions("4", "5", "6")
-	won = won || g.IsSamePlayerInPositions("7", "8", "9")
-	won = won || g.IsSamePlayerInPositions("1", "4", "7")
-	won = won || g.IsSamePlayerInPositions("2", "5", "8")
-	won = won || g.IsSamePlayerInPositions("3", "6", "9")
-	won = won || g.IsSamePlayerInPositions("1", "5", "9")
-	won = won || g.IsSamePlayerInPositions("3", "5", "7")
-	return won
+	for _, v := range winningCombinations {
+		if g.IsSamePlayerInPositions(v[0], v[1], v[2]) {
+			return true
+		}
+	}
+	return false
 }
 
 func (g *Game) ValidateTie() bool {
 	for i := range g.board {
 		for j := range g.board {
 			pos := g.board[i][j]
-			if pos != Player1 && pos != Player2 {
+			if pos != string(Player1) && pos != string(Player2) {
 				return false
 			}
 		}
@@ -112,18 +123,14 @@ func (g *Game) Validate() GameResult {
 		return Won
 	case g.ValidateTie():
 		return Tie
-	default:
-		return None
 	}
+	return None
 }
 
 func (g *Game) IsSamePlayerInPositions(x, y, z string) bool {
-	xy1 := PositionMap[x]
-	xy2 := PositionMap[y]
-	xy3 := PositionMap[z]
-	x1, y1 := xy1[0], xy1[1]
-	x2, y2 := xy2[0], xy2[1]
-	x3, y3 := xy3[0], xy3[1]
+	x1, y1 := positionMap[x][0], positionMap[x][1]
+	x2, y2 := positionMap[y][0], positionMap[y][1]
+	x3, y3 := positionMap[z][0], positionMap[z][1]
 	return g.board[x1][y1] == g.board[x2][y2] && g.board[x2][y2] == g.board[x3][y3]
 }
 

@@ -40,14 +40,14 @@ func PerformSumNumbers() {
 }
 
 // Type Approximation "~"
-// Type approximation is a token that can be used in types to indicate that aliases for this type are allowed as well,
-// not only the type itself.
-// For example, we will define a type alias for int64, but it will not be available for the generic function, since
-// the function only accepts the type itself, not approximations of it.
+// Type approximation is a token that can be used in types to indicate that types based on the original
+// type are allowed as well, not only the original one.
+// For example, we will define a nwe type based on int, but it will not be available for the generic function, since
+// the function only accepts the original type itself, not approximations of it.
 type Integer int
 
 // Defining Generic Function with Type Approximation
-// Now, to allow the function to accept the type alias, we will define the function with the type approximation token "~".
+// Now, to allow the function to accept related types, we will define the function with the type approximation token "~".
 func sumAnyNumbers[T ~int | ~float64](x, y T) T {
 	return x + y
 }
@@ -57,7 +57,7 @@ func sumAnyNumbers[T ~int | ~float64](x, y T) T {
 func PerformSumAnyNumbers() {
 
 	// Sum two Integers
-	// The generic function works to Integer types (alias to int).
+	// The generic function works to Integer types (type based on int).
 	// Note that the type parameter T is inferred from the arguments passed to the function.
 	var x Integer = 10
 	var y Integer = 20
@@ -67,7 +67,7 @@ func PerformSumAnyNumbers() {
 
 // Type Interface
 // We can define a type interface that represents a set of types that can be used with the generic function.
-// This allows us to create an alias for n types.
+// This allows us to create a group of types.
 // We can use the "|" operator to separate the types.
 type Numeric interface {
 	~int | ~float64

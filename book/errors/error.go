@@ -6,73 +6,44 @@
 
 package errors
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
-// Declaring Function that can Raises an Error
+// Declaring Function that Raises an Error
 // The function below shows how to declare a function that returns an error.
 // The error can be nil if there is no error.
 // We can use the "fmt.Errorf" function to create an error.
-// We can also use the "errors" package to create errors.
-func ValidateAge(age int) (int, error) {
-	if age > 0 {
-		return age, nil
+func Divide(x, y int) (int, error) {
+	if y == 0 {
+		return 0, fmt.Errorf("division by zero")
 	}
-	return 0, fmt.Errorf("invalid age: %d", age)
+	return x / y, nil
+}
+
+// Declaring Function that Raises an Error (With Errors.New)
+// We can also use the "errors.New" function to create an error.
+func Divide2(x, y int) (int, error) {
+	if y == 0 {
+		return 0, errors.New("division by zero")
+	}
+	return x / y, nil
 }
 
 // Handling Error
-// The function below shows how to handle an error.
+// We will call the function above to raise an error.
 func HandlingError() {
-
-	// Performing Successfully
-	// If the function performs successfully, the error value will be nil.
-	age, err := ValidateAge(25)
-	fmt.Println("Age:", age, "Error:", err) // Output: Age: 25 Error: <nil>
-
-	// Performing Unsuccessfully
-	// If the function fails, the error value will not be nil.
-	age, err = ValidateAge(-1)
-	fmt.Println("Age:", age, "Error:", err) // Output: Age: 0 Error: invalid age: -1
 
 	// Handling Errors
 	// We can check if the error value is nil or not.
 	// If the error value is not nil, we can handle the error.
-	age, err = ValidateAge(-1)
+	// This is the same approach to validate errors created using "errors.New"
+	r, err := Divide(4, 0)
 	if err != nil {
-		fmt.Println("Error:", err) // Output: Error: invalid age: -1
+		fmt.Println("Error:", err) // Output: Error: Division by zero
 	} else {
-		fmt.Println("Age is valid:", age)
-	}
-}
-
-// Declaring Function that can Raises Multiple Errors
-// We can use a slice of errors to raise multiple errors.
-// The function below shows how to declare a function that returns multiple errors.
-func ValidatePassword(p string) []error {
-	var errors []error
-	if p == "" {
-		errors = append(errors, fmt.Errorf("password is empty"))
-	}
-	if len(p) < 8 {
-		errors = append(errors, fmt.Errorf("password is too short"))
-	}
-	return errors
-}
-
-// Handling Multiple Errors
-// The function below shows how to handle multiple errors.
-func HandlingMultipleErrors() {
-
-	// Handling Multiple Errors
-	// We can check if the error slice is empty or not.
-	// If the error slice is not empty, we can handle the errors.
-	passwordErrors := ValidatePassword("123")
-	if len(passwordErrors) > 0 {
-		for _, err := range passwordErrors {
-			fmt.Println("Error:", err) // Output: Error: password is too short
-		}
-	} else {
-		fmt.Println("Password is valid")
+		fmt.Println("Result:", r)
 	}
 }
 
@@ -104,14 +75,19 @@ func Request(path string) (string, error) {
 
 // Handling a Custom Error
 // The function below shows how to handle the custom error.
+// We can check the type of the error using type assertion to ensure that the error is of type "CustomError".
 func HandlingCustomError() {
 
 	// Handling Custom Error
 	// We will call the function above to raise the custom error.
 	_, err := Request("/admin")
 	if err != nil {
-		fmt.Println("Error:", err) // Output: Error: Code: 403, Message: Forbidden
+		if _, ok := err.(*CustomError); ok {
+			fmt.Println("Error:", err) // Output: Error: Code: 403, Message: Forbidden
+		} else {
+			fmt.Println("Generic Error")
+		}
 	} else {
-		fmt.Println("Request is successful")
+		fmt.Println("Successful")
 	}
 }

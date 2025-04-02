@@ -58,6 +58,12 @@ func CreatingLoops() {
 		fmt.Println(v) // Output: A B C
 	}
 
+	// For with Range (No Variable)
+	// We can also create a for-range without any variable
+	for range 3 {
+		fmt.Println("A") // Output: A A A
+	}
+
 	// Infinite For Loop
 	// An empty "for" loop is used to create an infinite loop, which can be controlled using "break".
 	// It is the equivalent of a "while true" loop in other languages.

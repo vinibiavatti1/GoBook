@@ -5,6 +5,8 @@ import (
 	"os"
 	"os/exec"
 	"slices"
+	"strconv"
+	"strings"
 	"time"
 )
 
@@ -21,25 +23,25 @@ type Rule struct {
 }
 
 var (
-	Gol          = &Rule{Born: []int{3}, Survive: []int{2, 3}}
-	HighLife     = &Rule{Born: []int{2, 3}, Survive: []int{3, 6}}
-	Assimilation = &Rule{Born: []int{3, 4, 5}, Survive: []int{4, 5, 6, 7}}
-	TwoXTwo      = &Rule{Born: []int{3, 6}, Survive: []int{1, 2, 5}}
-	DayAndNight  = &Rule{Born: []int{3, 6, 7, 8}, Survive: []int{3, 4, 5, 7, 8}}
-	Amoeba       = &Rule{Born: []int{3, 5, 7}, Survive: []int{1, 3, 5, 8}}
-	Move         = &Rule{Born: []int{3, 6, 8}, Survive: []int{2, 4, 5}}
-	PseudoLife   = &Rule{Born: []int{3, 5, 7}, Survive: []int{2, 3, 8}}
-	Diamoeba     = &Rule{Born: []int{3, 5, 6, 7, 8}, Survive: []int{5, 6, 7, 8}}
-	Rule34       = &Rule{Born: []int{3, 4}, Survive: []int{3, 4}}
-	LongLife     = &Rule{Born: []int{3, 4, 5}, Survive: []int{5}}
-	Stains       = &Rule{Born: []int{3, 6, 7, 8}, Survive: []int{2, 3, 5, 6, 7, 8}}
-	Seeds        = &Rule{Born: []int{2}, Survive: []int{}}
-	Maze         = &Rule{Born: []int{3}, Survive: []int{1, 2, 3, 4, 5}}
-	Coagulations = &Rule{Born: []int{3, 7, 8}, Survive: []int{2, 3, 5, 6, 7, 8}}
-	WalledCities = &Rule{Born: []int{4, 5, 6, 7, 8}, Survive: []int{2, 3, 4, 5}}
-	Gnarl        = &Rule{Born: []int{1}, Survive: []int{1}}
-	Replicator   = &Rule{Born: []int{1, 3, 5, 7}, Survive: []int{1, 3, 5, 7}}
-	Mystery      = &Rule{Born: []int{3, 4, 5, 8}, Survive: []int{0, 5, 6, 7, 8}}
+	Gol, _          = ParseRule("3/23")
+	HighLife, _     = ParseRule("23/36")
+	Assimilation, _ = ParseRule("345/4567")
+	TwoXTwo, _      = ParseRule("36/125")
+	DayAndNight, _  = ParseRule("3678/34578")
+	Amoeba, _       = ParseRule("357/1358")
+	Move, _         = ParseRule("368/245")
+	PseudoLife, _   = ParseRule("357/238")
+	Diamoeba, _     = ParseRule("35678/5678")
+	Rule34, _       = ParseRule("34/34")
+	LongLife, _     = ParseRule("345/5")
+	Stains, _       = ParseRule("3678/235678")
+	Seeds, _        = ParseRule("2/")
+	Maze, _         = ParseRule("3/12345")
+	Coagulations, _ = ParseRule("378/235678")
+	WalledCities, _ = ParseRule("45678/2345")
+	Gnarl, _        = ParseRule("1/1")
+	Replicator, _   = ParseRule("1357/1357")
+	Mystery, _      = ParseRule("3458/05678")
 )
 
 type update struct {
@@ -142,6 +144,32 @@ func (g *GameOfLife) countLives(x, y int) int {
 		}
 	}
 	return count
+}
+
+func ParseRule(rule string) (*Rule, error) {
+	if !strings.Contains(rule, "/") {
+		return nil, fmt.Errorf("missing %q separator", "/")
+	}
+	parts := strings.Split(rule, "/")
+	if len(parts) != 2 {
+		return nil, fmt.Errorf("invalid format: %q", rule)
+	}
+	born := []int{}
+	survive := []int{}
+	for _, v := range parts[0] {
+		if i, err := strconv.Atoi(string(v)); err == nil {
+			born = append(born, i)
+		}
+	}
+	for _, v := range parts[1] {
+		if i, err := strconv.Atoi(string(v)); err == nil {
+			survive = append(survive, i)
+		}
+	}
+	return &Rule{
+		Born:    born,
+		Survive: survive,
+	}, nil
 }
 
 func run(cmd string) {

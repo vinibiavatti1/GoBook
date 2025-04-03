@@ -144,19 +144,21 @@ func SpecialVariableNames() {
 */
 
 // Single Line Comment
-// Single line comments should always be used to document the resources below.
-// - Packages
-// - Functions
-// - Types (Structs, Interfaces, etc.)
-// - Global Variables
-// - Global Constants
+// Single line comments can be used to explain a single line of code.
+// This comment can also be used to document Go resources.
+// This comment type is preferred instead of multi-line comments.
+var _ = `
+// Single Line Comment
+`
 
 // Section Comment
 // Section comments can be used to separate different sections of code.
 // A multi-line must be used to create section comments.
+var _ = `
 /*
 	Section Comment
 */
+`
 
 /*
 	Methods Convention

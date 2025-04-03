@@ -6,12 +6,13 @@
 package packages
 
 // Project Structure
-// ---
-// project
-// |- /cmd         // Main files (main.go) for this project.
-// |- /internal    // Private application and library code.
-// |- /<packages>  // Public libraries for other projects.
-// |- go.mod 	   // Module definition and dependencies.
+var _ = `
+project
+|- /cmd      // Main files (main.go) for this project.
+|- /internal // Private application and library code.
+|- /pkg      // Public libraries for other projects.
+|- go.mod 	 // Module definition and dependencies.
+`
 
 // Cmd Directory
 // The cmd directory contains the main files for the project.
@@ -22,3 +23,7 @@ package packages
 // The internal is a special directory in Go projects that is used to define private code.
 // Code in this directory is not accessible to other projects, even if they import the module. This is useful for
 // encapsulating implementation details and ensuring that only the intended code is exposed to other packages.
+
+// Pkg Directory
+// The pkg directory is used for public libraries that can be imported by other projects.
+// Code in this directory is intended to be reusable and can be shared across different projects.

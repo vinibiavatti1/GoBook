@@ -3,7 +3,7 @@
 // This structure is particularly important for larger projects, where organization can significantly
 // impact development speed and ease of understanding.
 
-package packages
+package project
 
 // Project Structure
 var _ = `

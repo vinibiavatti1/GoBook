@@ -1,8 +1,3 @@
-// Tic Tac Toe Game
-// This is a simple implementation of the Tic Tac Toe game in Go.
-// The game is played on a 3x3 grid, where two players take turns placing their marks (X or O) in the empty cells.
-// The first player to get three marks in a row (horizontally, vertically, or diagonally) wins the game.
-
 package main
 
 import (

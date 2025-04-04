@@ -7,26 +7,18 @@
 package errors
 
 import (
-	"errors"
 	"fmt"
 )
 
 // Declaring Function that Raises an Error
 // The function below shows how to declare a function that returns an error.
+// We can use the "errors.New" function to create a new error.
+// If we need a formatted error, we can use the "fmt.Errorf" function.
 // The error can be nil if there is no error.
-// We can use the "fmt.Errorf" function to create an error.
+// It returns an error value that can be used to format the error message.
 func Divide(x, y int) (int, error) {
 	if y == 0 {
-		return 0, fmt.Errorf("division by zero")
-	}
-	return x / y, nil
-}
-
-// Declaring Function that Raises an Error (With Errors.New)
-// We can also use the "errors.New" function to create an error.
-func Divide2(x, y int) (int, error) {
-	if y == 0 {
-		return 0, errors.New("division by zero")
+		return 0, fmt.Errorf("division by zero %d/%d", x, y)
 	}
 	return x / y, nil
 }
@@ -41,9 +33,37 @@ func HandlingError() {
 	// This is the same approach to validate errors created using "errors.New"
 	r, err := Divide(4, 0)
 	if err != nil {
-		fmt.Println("Error:", err) // Output: Error: Division by zero
+		fmt.Println("Error:", err) // Output: Error: division by zero 4/0
 	} else {
 		fmt.Println("Result:", r)
+	}
+}
+
+// Wrapping an Error
+// Wrapping an error means to append the current error to the new error.
+// This is useful to add more context to the error.
+// We can wrap an error using the "fmt.Errorf" function with the "%w" verb.
+// The function below performs the other function, and wraps the error if it occurs.
+func DoDivide(x, y int) (int, error) {
+	r, err := Divide(x, y) // Call the function that raises an error
+	if err != nil {
+		return 0, fmt.Errorf("failed to divide: %w", err) // Wraps the error
+	}
+	return r, nil
+}
+
+// Handling Wrapped Error
+// Now, when the errors is printed, it will show the wrapped error and the original error.
+// This way is more recommended since it is easier to locate the error.
+func HandlingWrappedError() {
+
+	// Handling Wrapped Error
+	// We will raise the error to look at the message.
+	_, err := DoDivide(4, 0)
+	if err != nil {
+		fmt.Println("Error:", err) // Output: Error: failed to divide: division by zero 4/0
+	} else {
+		fmt.Println("Successful")
 	}
 }
 

@@ -4,7 +4,7 @@
 // In Go we only import packages (group of files), not files.
 // To import a package, we use the "import" statement.
 
-package packages
+package project
 
 // Declaring a Package
 // To declare a package, we use the "package" statement.

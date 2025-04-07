@@ -9,173 +9,136 @@ package styleguide
 
 import (
 	"errors"
-	"fmt"
 )
 
-/*
-	Naming Convention
-*/
-
-// Public Modules
-// Characters: a-z, 0-9, /, .
-// Pattern: "github.com/<username>/<repo>"
+// Modules
+// Use only lowercase letters.
+// Use the repo pattern for shared projects: "github.com/<username>/<repo>"
 var _ = "github.com/john/myproject"
-
-// Private Modules
-// Characters: a-z, 0-9, /, .
 var _ = "myproject"
 
 // Directories
-// Characters: a-z, 0-9
+// Use only lowercase letters.
 var _ = "httphandler"
 
 // Files
-// Characters: a-z, 0-9
-// Extension: .go
+// Use only lowercase letters.
+// Use the Go extension: ".go".
 var _ = "httphandler.go"
 
 // Test Files
-// Characters: a-z, 0-9
-// Extension: .go
-// Pattern: "<name>_test.go"
+// Use only lowercase letters.
+// Use the "_test" suffix: "<name>_test.go"
 var _ = "httphandler_test.go"
 
 // Packages
-// Characters: a-z, 0-9
-// Note: The package name should be the same as the directory name where the package is located.
+// Use only lowercase letters.
+// Use the same name as the directory name.
 var _ = "httphandler"
 
 // Acronyms
-// Acronyms should be written in all uppercase letters.
-// Characters: A-Z, 0-9
+// Use uppercase letters.
 var ID = 1
 var HTTPClient = 1
 
 // Keywords
-// When using keywords as resource names, they should be suffixed with an underscore "_".
-func If_() {}
+// Use the underscore "_" suffix for reserved names.
+var Type_ = 1
 
 // Unused
-// Unused resources should have the "_" name.
+// Use the underscore "_" for unused resources.
 var _ = 1
 
 // Variables
-// Characters: a-z, A-Z, 0-9
+// Use camelCase/PascalCase.
 var PersonID = 1
 
 // Constants
-// Characters: a-z, A-Z, 0-9
+// Use camelCase/PascalCase.
 const EmployeeID = 1
 
 // Functions
-// Characters: a-z, A-Z, 0-9
+// Use camelCase/PascalCase.
 func PerformOperation() {}
 
-// Structs
-// Characters: a-z, A-Z, 0-9
-type Person struct{ name string }
-
-// Methods
-// Characters: a-z, A-Z, 0-9
-func (p *Person) JobName() {}
-
 // New Type
-// Characters: a-z, A-Z, 0-9
+// Use camelCase/PascalCase.
 type Number int
 
 // Type Alias
-// Characters: a-z, A-Z, 0-9
+// Use camelCase/PascalCase.
 type Decimal = float64
 
 // Interfaces
-// Characters: a-z, A-Z, 0-9
+// Use camelCase/PascalCase.
 type Reader interface{ Read() }
 
 // Errors
-// Characters: a-z, A-Z, 0-9
-// Pattern: "Err<Name>"
-// Message: Not Capitalized
+// Use camelCase/PascalCase.
+// Use the "Err" prefix.
+// Use lowercase for the error message.
 var ErrNotFound = errors.New("not found")
 
-// Special Names
-// The function below shows special variable names that are used in Go language.
-// Special Conventions:
-// - Error: err
-// - Index: i, j, k
-// - Key: k
-// - Value: v
-// - Channel: ch
-func SpecialVariableNames() {
+// Structs
+// Use camelCase/PascalCase.
+type Person struct{ name string }
 
-	// Error Name
-	// The error name should be "err".
-	_, err := map[int]int{}[0]
-	fmt.Println(err)
+// Constructors
+// Use camelCase/PascalCase.
+// Use the "New" prefix.
+// Use a pointer as the return type.
+func NewPerson(name string) *Person { return &Person{name: name} }
 
-	// Index Name
-	// The index name should be "i", "j", "k".
-	for i := range 3 {
-		for j := range 3 {
-			fmt.Println(i, j)
-		}
-	}
-
-	// Value Name
-	// The value name should be "v".
-	for v := range []int{1, 2, 3} {
-		fmt.Println(v)
-	}
-
-	// Key-Value Pair
-	// The key name should be "k".
-	// The value name should be "v".
-	for k, v := range map[int]int{1: 2} {
-		fmt.Println(k, v)
-	}
-
-	// Channel Name
-	// The channel name should be "ch".
-	ch := make(chan int)
-	fmt.Println(ch)
-}
-
-/*
-	Comment Convention
-*/
-
-// Single Line Comment
-// Single line comments can be used to explain a single line of code.
-// This comment can also be used to document Go resources.
-// This comment type is preferred instead of multi-line comments.
-var _ = `
-// Single Line Comment
-`
-
-// Section Comment
-// Section comments can be used to separate different sections of code.
-// A multi-line must be used to create section comments.
-var _ = `
-/*
-	Section Comment
-*/
-`
-
-/*
-	Methods Convention
-*/
-
-// Method Receiver
-// The method receiver should be a pointer to the struct type.
-// The receiver name should be a single letter, preferably the first letter of the struct name.
-// If the struct name is various words, the receiver name should be the first letter of each word.
-func (p *Person) Surname() {}
+// Methods
+// Use camelCase/PascalCase.
+// Use a pointer to the receiver type.
+// Use a single letter for the receiver name.
+func (p *Person) JobName() {}
 
 // Getters
-// Functions that return something are given noun-like names.
-// Don't use "Get" prefix.
+// Use camelCase/PascalCase.
+// Don't use the "Get" prefix.
 func (p *Person) Name() string { return p.name }
 
 // Setters
-// Functions that do something are given verb-like names.
-// For setters, we use "Set" prefix.
+// Use camelCase/PascalCase.
+// Use the "Set" prefix.
 func (p *Person) SetName(name string) { p.name = name }
+
+// Special Names
+// Use the following special variable names for specific purposes:
+var _ = `
+err     // Error values
+i, j, k // Loop indexes (especially in nested loops)
+n       // Count or length
+k       // Map key
+v       // Map value
+ch      // Channel
+res     // Result of a function or operation
+buf     // Buffer (e.g., for bytes.Buffer or temporary data)
+tmp     // Temporary value or variable
+ctx     // Context (context.Context)
+tmp     // Temporary value
+r, w    // Reader, Writer (w: Response, r: Request)
+m       // Generic map
+x, y, z // Math / Coordinates
+fn      // Function variable
+_       // Blank identifier (to ignore a value)
+`
+
+// Documentation
+// Use single line comments for documentation.
+var _ = `
+// Takes two integers and returns their sum.
+func Sum(x, y int) int {
+    ...
+}
+`
+
+// Section Comment
+// Use multi-line comments to create section comments.
+var _ = `
+/*
+   Section Title
+*/
+`

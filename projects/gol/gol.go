@@ -57,7 +57,7 @@ type GameOfLife struct {
 	screen [][]Cell
 }
 
-func NewGameOfLife(w int, h int, rule *Rule) *GameOfLife {
+func NewGameOfLife(w, h int, rule *Rule) *GameOfLife {
 	gol := &GameOfLife{
 		Width:  w,
 		Height: h,
@@ -147,21 +147,18 @@ func (g *GameOfLife) countLives(x, y int) int {
 }
 
 func ParseRule(rule string) (*Rule, error) {
-	if !strings.Contains(rule, "/") {
+	before, after, found := strings.Cut(rule, "/")
+	if !found {
 		return nil, fmt.Errorf("missing %q separator", "/")
-	}
-	parts := strings.Split(rule, "/")
-	if len(parts) != 2 {
-		return nil, fmt.Errorf("invalid format: %q", rule)
 	}
 	born := []int{}
 	survive := []int{}
-	for _, v := range parts[0] {
+	for _, v := range before {
 		if i, err := strconv.Atoi(string(v)); err == nil {
 			born = append(born, i)
 		}
 	}
-	for _, v := range parts[1] {
+	for _, v := range after {
 		if i, err := strconv.Atoi(string(v)); err == nil {
 			survive = append(survive, i)
 		}

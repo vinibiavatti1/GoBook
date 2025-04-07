@@ -105,9 +105,11 @@ func BitwiseOperators() {
 	y := 13 // 0000 1101
 
 	// Bitwise Operators
+	_ = ^x     // 1100 0011 NOT
 	_ = x & y  // 0000 1100 AND
 	_ = x | y  // 0011 1101 OR
 	_ = x ^ y  // 0011 0001 XOR
+	_ = x &^ y // 0011 0000 AND NOT (Bit Clear)
 	_ = x << 2 // 1111 0000 Left Shift
 	_ = x >> 2 // 0000 1111 Right Shift
 }

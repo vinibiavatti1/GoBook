@@ -31,6 +31,14 @@ require (
 	<module-name> <version>
 	...
 )
+replace (
+	<module-name> => <module-name> <version>
+	...
+)
+exclude (
+	<module-name> <version>
+	...
+)
 `
 
 // Adding Dependencies
@@ -41,11 +49,34 @@ require (
 var _ = "go get <module-name>@<version>"
 
 // Updating Dependencies
-// To update a dependency, you can use the go get command with the -u flag.
+// To update a dependency, we can use the go get command with the -u flag.
 // The -u flag will update the dependency to the latest version.
 var _ = "go get -u <module-name>"
 
 // Removing Dependencies
-// To remove a dependency, you can use the go mod tidy command.
+// To remove a dependency, we can use the go mod tidy command.
 // The go mod tidy command will remove any dependencies that are not used in the module.
 var _ = "go mod tidy"
+
+// Workspaces
+// A workspace is a collection of modules, and it is defined by a go.work file.
+// The difference between a module and a workspace is that a module is a single unit of code,
+// while a workspace is a collection of modules.
+// The go.work file has the statements below which is used to configure the workspace.
+// To create a workspace, we need to create a directory for our workspace and run the "go work init" command.
+var _ = `
+go: <version>
+
+use (
+	<module-name>
+	...
+)
+replace (
+	<module-name> => <module-name>
+	...
+)
+exclude (
+	<module-name>
+	...
+)
+`

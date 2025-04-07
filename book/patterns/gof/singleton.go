@@ -16,9 +16,9 @@ type Singleton struct {
 // Declaring a package-level variable to hold the single instance of the Singleton struct.
 var instance *Singleton
 
-// Declaring a Function
-// The GetInstance function returns the single instance of the Singleton struct.
-func GetInstance() *Singleton {
+// Declaring a Constructor
+// The NewSingleton function returns the single instance of the Singleton struct.
+func NewSingleton() *Singleton {
 	if instance == nil {
 		instance = &Singleton{ID: 1}
 	}
@@ -30,9 +30,9 @@ func GetInstance() *Singleton {
 func TestSingleton() {
 
 	// Getting the Singleton instance
-	// We will call the GetInstance function twice to get two instances of the Singleton struct.
-	singleton1 := GetInstance()
-	singleton2 := GetInstance()
+	// We will call the NewSingleton function twice to get two instances of the Singleton struct.
+	singleton1 := NewSingleton()
+	singleton2 := NewSingleton()
 
 	// Check
 	// We can see that both instances have the same ID, which means they are indeed the same instance.

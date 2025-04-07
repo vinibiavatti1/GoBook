@@ -70,6 +70,13 @@ func CreatingLoops() {
 	for {
 		break
 	}
+
+	// Empty Statements
+	// We can use empty declarations, conditions and increments in a "for" loop.
+	// The example below demonstrates an empty declaration.
+	for ; i > 0; i++ {
+		break
+	}
 }
 
 // Controlling Loops

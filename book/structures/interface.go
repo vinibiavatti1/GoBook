@@ -13,6 +13,14 @@ type Printer interface {
 	Print()
 }
 
+// Composition
+// Interfaces can be composed of other interfaces.
+// This means that an interface can include other interfaces as part of its definition.
+type OtherPrinter interface {
+	Printer
+	OtherPrint()
+}
+
 // Nil Interface
 // Go allows to assign nil to an interface.
 // This means that the interface does not hold any value.

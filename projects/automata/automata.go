@@ -1,7 +1,14 @@
 package main
 
 import (
+	"flag"
 	"fmt"
+)
+
+var (
+	wFlag = flag.Int("w", 60, "width of the automata")
+	hFlag = flag.Int("h", 20, "height of the automata")
+	rFlag = flag.Int("r", 30, "rule number (0~255) of the automata")
 )
 
 type Cell string
@@ -130,7 +137,8 @@ func parseRule(rule int) [8]Cell {
 }
 
 func main() {
-	a, err := NewAutomata(60, 20, 999)
+	flag.Parse()
+	a, err := NewAutomata(*wFlag, *hFlag, *rFlag)
 	if err != nil {
 		fmt.Println("Error:", err)
 		return

@@ -6,7 +6,7 @@
 // Syntax:
 //   map[<keyType>]<valueType>{<key>:<value>}
 
-package composite
+package containers
 
 import "fmt"
 

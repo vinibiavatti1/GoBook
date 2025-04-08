@@ -10,17 +10,29 @@ import (
 	"time"
 )
 
-type Cell string
+type (
+	Cell string
+	Rule struct {
+		Born    []int
+		Survive []int
+	}
+	GameOfLife struct {
+		Width  int
+		Height int
+		Rule   *Rule
+		screen [][]Cell
+	}
+	update struct {
+		x    int
+		y    int
+		cell Cell
+	}
+)
 
 const (
 	Live Cell = "*"
 	Dead Cell = " "
 )
-
-type Rule struct {
-	Born    []int
-	Survive []int
-}
 
 var (
 	Gol, _          = ParseRule("3/23")
@@ -43,19 +55,6 @@ var (
 	Replicator, _   = ParseRule("1357/1357")
 	Mystery, _      = ParseRule("3458/05678")
 )
-
-type update struct {
-	x    int
-	y    int
-	cell Cell
-}
-
-type GameOfLife struct {
-	Width  int
-	Height int
-	Rule   *Rule
-	screen [][]Cell
-}
 
 func NewGameOfLife(w, h int, rule *Rule) *GameOfLife {
 	gol := &GameOfLife{

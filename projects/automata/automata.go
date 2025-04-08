@@ -11,20 +11,21 @@ var (
 	rFlag = flag.Int("r", 30, "rule number (0~255) of the automata")
 )
 
-type Cell string
+type (
+	Cell     string
+	Automata struct {
+		width      int
+		height     int
+		rule       int
+		parsedRule [8]Cell
+		cells      [][]Cell
+	}
+)
 
 const (
 	Live Cell = "*"
 	Dead Cell = " "
 )
-
-type Automata struct {
-	width      int
-	height     int
-	rule       int
-	parsedRule [8]Cell
-	cells      [][]Cell
-}
 
 func NewAutomata(w, h, rule int) (*Automata, error) {
 	a := &Automata{}

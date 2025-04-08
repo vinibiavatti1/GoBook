@@ -4,7 +4,7 @@
 // Syntax:
 //   [<length>]<datatype>{<values>}
 
-package composite
+package containers
 
 import "fmt"
 

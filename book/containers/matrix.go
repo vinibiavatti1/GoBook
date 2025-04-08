@@ -6,7 +6,7 @@
 //   2D: [][]<datatype>{}
 //   3D: [][][]<datatype>{}
 
-package composite
+package containers
 
 import "fmt"
 

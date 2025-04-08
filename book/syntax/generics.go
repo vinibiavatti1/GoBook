@@ -146,7 +146,7 @@ func UsingGenericStruct() {
 	fmt.Println("y value:", y.GetValue()) // Output: y value: value
 }
 
-// Generic Composites
+// Generic Containers
 // In this example, we will create a map of numbers and use the generic function to sum the values in the map.
 // The "cmp.Ordered" constraint is used to ensure that the values in the map are ordered types (int, float, etc.).
 func sumMap[K comparable, V cmp.Ordered](m map[K]V) V {
@@ -157,7 +157,7 @@ func sumMap[K comparable, V cmp.Ordered](m map[K]V) V {
 	return s
 }
 
-// Perform Generic Composites
+// Perform Generic Containers
 // Now, we will use the function to sum the values in the map.
 func PerformSumMap() {
 

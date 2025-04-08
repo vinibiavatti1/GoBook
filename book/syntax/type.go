@@ -1,46 +1,35 @@
 // Type
 // The "type" keyword is used to declare new types or create aliases for existing types.
 // Syntax:
-//   type <name> <type>
+//   New Type: type <name> <type>
+//   Alias:    type <name> = <type>
 
 package syntax
 
 import "fmt"
 
-// Declaring Structs
-// We use "type" to declare structs.
-type Person struct{}
+// Declaring a Type
+// We can declare new types using the "type" keyword.
+// The new type can be based on an existing type.
+// In the example below, LocalType is a new type based on the int type.
+// Aliases can be created using the "=" operator.
+type LocalType int   // New type
+type AliasType = int // Alias (Using "=" operator)
 
-// Declaring Interfaces
-// Interfaces define a set of methods that a type must implement.
-type Handler interface{}
-
-// Declaring Function Signature
-// "type" can be used to define function signatures.
-type Sum func(x, y int) int
-
-// Declaring Array Signature
-// "type" can be used to create new names for fixed-size arrays.
-type Point [2]int
-
-// Declaring Slice Signature
-// We can create custom names for slices.
-type Collection []any
-
-// Declaring Map Signature
-// We create custom names for maps.
-type Dictionary map[any]any
-
-// Declaring New Type Based on Other Type
-// We can create a new type based on an existing type.
-// In this case, Number is not a float64, but a new type that is based on it.
-type Number float64
-
-// Declaring Alias
-// We can create an alias for an existing type.
-// Note: The "=" operator is used to define an alias.
-// In this case, Decimal is a float64 (same type).
-type Decimal = float64
+// Declaring Multiple Types
+// We can use a type block to declare multiple types at once.
+// The examples below shows different base types that can be used for new types.
+type (
+	Number       float64            // New datatype
+	Person       struct{}           // New Struct type
+	Handler      interface{}        // New Interface type
+	Sum          func(x, y int) int // New Func type
+	Point        [2]int             // New Array type
+	Collection   []any              // New Slice type
+	Stack[T any] []T                // New Slice type (With Generics)
+	Dictionary   map[any]any        // New Map type
+	Decimal      = float64          // Alias (Using "=" operator)
+)
 
 // Using Declared Types
 // This function shows examples of the usage of the types declared above.

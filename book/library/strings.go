@@ -22,9 +22,9 @@ import (
 	"unicode"
 )
 
-// Compare Functions
+// String Compare Functions
 // Example of comparison functions in the strings package.
-func CompareFunctions() {
+func StringCompareFunctions() {
 
 	// Compare
 	// Compare compares two strings lexicographically.
@@ -42,9 +42,9 @@ func CompareFunctions() {
 	fmt.Println("eq:", eq) // Output: eq: true
 }
 
-// Contains Functions
+// String Contains Functions
 // Example of functions that check for the presence of substrings in strings.
-func ContainsFunctions() {
+func StringContainsFunctions() {
 
 	// Contains
 	// Contains reports whether substr is within s.
@@ -81,9 +81,9 @@ func ContainsFunctions() {
 	fmt.Println("has:", has) // Output: has: true
 }
 
-// Index Functions
+// String Index Functions
 // Example of functions that return the index of substrings in strings.
-func IndexFunctions() {
+func StringIndexFunctions() {
 
 	// Index
 	// Index returns the index of the first instance of substr in s, or -1 if substr is not present.
@@ -139,9 +139,9 @@ func IndexFunctions() {
 	fmt.Println("i:", i) // Output: i: 8 (Found last 'o' at index 8)
 }
 
-// Replace Functions
+// String Replace Functions
 // Example of functions that replace substrings in strings.
-func ReplaceFunctions() {
+func StringReplaceFunctions() {
 
 	// Replace
 	// Replace returns a copy of the string s with the first n non-overlapping instances of old replaced by new.
@@ -156,9 +156,9 @@ func ReplaceFunctions() {
 	fmt.Println("x:", x) // Output: x: He11o (All 'l' are replaced)
 }
 
-// Cut Functions
+// String Cut Functions
 // Example of functions that cut strings into two parts.
-func CutFunctions() {
+func StringCutFunctions() {
 
 	// Cut
 	// Cut slices s into two parts: the text before the first instance of sep and the text after.
@@ -183,9 +183,9 @@ func CutFunctions() {
 	fmt.Println("found:", found) // Output: found: true
 }
 
-// Split Functions
+// String Split Functions
 // Example of functions that split strings into parts.
-func SplitFunctions() {
+func StringSplitFunctions() {
 
 	// Split
 	// Split slices s into all substrings separated by sep and returns a slice of the substrings between those separators.
@@ -227,9 +227,9 @@ func SplitFunctions() {
 	}
 }
 
-// Fields Functions
+// String Fields Functions
 // Example of functions that split strings into fields.
-func FieldsFunctions() {
+func StringFieldsFunctions() {
 
 	// Fields
 	// Fields splits s around each instance of one or more consecutive white space characters.
@@ -260,9 +260,9 @@ func FieldsFunctions() {
 	}
 }
 
-// Case Functions
+// String Case Functions
 // Example of functions that manipulate the case of strings.
-func CaseFunctions() {
+func StringCaseFunctions() {
 
 	// ToLower
 	// ToLower returns a copy of the string s with all Unicode code points mapped to their lower case.
@@ -295,9 +295,9 @@ func CaseFunctions() {
 	fmt.Println("x:", x) // Output: x: HELLO, WORLD!
 }
 
-// Trim Functions
+// String Trim Functions
 // Example of functions that trim characters from strings.
-func TrimFunctions() {
+func StringTrimFunctions() {
 
 	// Trim
 	// Trim returns a slice of the string s with all leading and trailing Unicode code points contained in cutset removed.
@@ -351,9 +351,9 @@ func TrimFunctions() {
 	fmt.Println("x:", x) // Output: x: Hello,  (Suffix 'World!' removed)
 }
 
-// Other Functions
+// String Other Functions
 // Example of other functions in the strings package.
-func OtherFunctions() {
+func StringOtherFunctions() {
 
 	// Clone
 	// Clone is used to create a copy of a string.
@@ -399,9 +399,9 @@ func OtherFunctions() {
 	fmt.Println("x:", x) // Output: x: Hello,  World! (Invalid UTF-8 replaced by space)
 }
 
-// Types
+// String Types
 // Example of types in the strings package.
-func Types() {
+func StringTypes() {
 
 	// Builder
 	// The Builder type is used to efficiently build strings.

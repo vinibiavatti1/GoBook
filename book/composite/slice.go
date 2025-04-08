@@ -33,6 +33,13 @@ func DeclaringSlices() {
 	x = make([]int, 3)
 	fmt.Println("x:", x) // Output: [0 0 0]
 
+	// Declaring a Slice with Predefined Length and Capacity
+	// The capacity is the maximum number of elements that can be stored in the slice.
+	// When the capacity is reached, the slice will be resized.
+	// If the capacity is not specified, it will be equal to the length.
+	x = make([]int, 3, 5)
+	fmt.Println("x:", x) // Output: [0 0 0] (length = 3, capacity = 5)
+
 	// Declaring a Slice of "any" Type
 	// We can declare a slice of type "any" to store values of any type.
 	// The "any" type is equivalent to the "interface{}" type in Go.
@@ -55,13 +62,19 @@ func ManipulatingSlices() {
 
 	// Slicing Slices
 	// We can slice slices using the [start:end] syntax.
-	// Note: The end index is exclusive.
+	// Note: The end index is exclusive (not included in the slice).
 	// Syntax: x[<start>:<end>]
-	fmt.Println("x[ :5]", x[:2])  // Output: [A B]
-	fmt.Println("x[7: ]", x[1:])  // Output: [B C]
-	fmt.Println("x[2:4]", x[1:2]) // Output: [B]
+	fmt.Println("x[ :2]", x[:2])  // Output: [A B]
+	fmt.Println("x[1: ]", x[1:])  // Output: [B C]
+	fmt.Println("x[1:2]", x[1:2]) // Output: [B]
 	fmt.Println("x[ : ]", x[:])   // Output: [A B C] (Same reference)
 	fmt.Println("x[0:0]", x[0:0]) // Output: [] (empty array)
+
+	// Slicing with Capacity
+	// We can specify the capacity of the slice using the capacity syntax.
+	// Syntax: x[<start>:<end>:<capacity>]
+	fmt.Println("x[ :2:5]", x[:2:5])  // Output: [A B] (length = 2, capacity = 5)
+	fmt.Println("x[1:2:5]", x[1:2:5]) // Output: [B] (length = 1, capacity = 5)
 
 	// Retrieving Length
 	// We can get the length of a slice using the "len()" builtin function.

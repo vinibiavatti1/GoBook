@@ -413,7 +413,7 @@ func StringTypes() {
 	b.WriteByte(' ')
 	b.WriteString("World!")
 	b.WriteRune('!')
-	fmt.Println("b:", b.String()) // Output: r: Hello World!
+	fmt.Println("b:", b.String()) // Output: b: Hello World!
 
 	// Reader
 	// The Reader type is used to read strings.

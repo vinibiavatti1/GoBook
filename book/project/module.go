@@ -58,6 +58,10 @@ var _ = "go get -u <module-name>"
 // The go mod tidy command will remove any dependencies that are not used in the module.
 var _ = "go mod tidy"
 
+// Installing Dependencies
+// Go install all the dependencies in the go.mod file automatically when the application is built or run.
+var _ = "go run ."
+
 // Workspaces
 // A workspace is a collection of modules, and it is defined by a go.work file.
 // The difference between a module and a workspace is that a module is a single unit of code,

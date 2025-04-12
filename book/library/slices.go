@@ -75,6 +75,19 @@ func SliceDataFunctions() {
 	x = []string{"A", "B", "C"}
 	slices.Reverse(x)
 	fmt.Println(x) // Output: [C B A] (slices are reversed)
+
+	// AppendSeq
+	// AppendSeq appends the values from seq to the slice and returns the extended slice.
+	x = []string{"A", "B", "C"}
+	x = slices.AppendSeq(x, slices.Values(x))
+	fmt.Println(x) // Output: [A B C A B C]
+
+	// Clone
+	// Clone returns a copy of the slice. The elements are copied using assignment, so this is a shallow clone.
+	// The result may have additional unused capacity.
+	x = []string{"A", "B", "C"}
+	clone := slices.Clone(x)
+	fmt.Println(clone) // Output: [A B C]
 }
 
 // Slice Index Functions
@@ -266,9 +279,9 @@ func SliceSortFunctions() {
 	fmt.Println(is) // Output: true (slices are sorted)
 }
 
-// Slice Seq Conversion Functions
+// Slice Seq Functions
 // The following functions convert between slices and iterators.
-func SliceSeqConversionFunctions() {
+func SliceSeqFunctions() {
 
 	// All (slice -> Seq2)
 	// All returns an iterator over index-value pairs in the slice in the usual order.
@@ -280,30 +293,24 @@ func SliceSeqConversionFunctions() {
 	// Values (slice -> Seq)
 	// Values returns an iterator that yields the slice elements in order.
 	x = []string{"A", "B", "C"}
-	seq := slices.Values(x)
-	for v := range seq {
+	for v := range slices.Values(x) {
 		fmt.Println(v) // Output: A B C
 	}
 
 	// Collect (Seq -> slice)
 	// Collect collects values from seq into a new slice and returns it.
-	collect := slices.Collect(seq)
-	fmt.Println(collect) // Output: [A B C A B C]
+	x = []string{"A", "B", "C"}
+	y := slices.Collect(slices.Values(x))
+	fmt.Println(y) // Output: [A B C]
 }
 
 // Slice Other Functions
 // The following functions are other available functions in the slices package.
 func SliceOtherFunctions() {
 
-	// AppendSeq
-	// AppendSeq appends the values from seq to the slice and returns the extended slice.
-	x := []string{"A", "B", "C"}
-	x = slices.AppendSeq(x, slices.Values(x))
-	fmt.Println(x) // Output: [A B C A B C]
-
 	// Backward
 	// Backward returns an iterator over index-value pairs in the slice, traversing it backward with descending indices.
-	x = []string{"A", "B", "C"}
+	x := []string{"A", "B", "C"}
 	for i, v := range slices.Backward(x) {
 		fmt.Println(i, v) // Output: 2 C, 1 B, 0 A
 	}
@@ -324,13 +331,6 @@ func SliceOtherFunctions() {
 	x = append(x, "A", "B", "C")
 	x = slices.Clip(x)
 	fmt.Println(cap(x)) // Output: 3 (capacity is 3)
-
-	// Clone
-	// Clone returns a copy of the slice. The elements are copied using assignment, so this is a shallow clone.
-	// The result may have additional unused capacity.
-	x = []string{"A", "B", "C"}
-	clone := slices.Clone(x)
-	fmt.Println(clone) // Output: [A B C]
 
 	// Grow
 	// Grow increases the slice's capacity, if necessary, to guarantee space for another n elements.

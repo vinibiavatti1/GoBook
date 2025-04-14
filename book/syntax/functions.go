@@ -46,10 +46,10 @@ func FunctionMultipleReturn() (int, int) {
 	return 1, 2
 }
 
-// Named Return Values
+// Named Return Values (Naked Returns)
 // Functions can return named values.
 // Named return values are initialized with the zero value of their type.
-// An empty return statement returns the named values implicitly.
+// An empty return statement (naked return) returns the named values implicitly.
 func NamedReturnValues() (x, y int) {
 	x, y = 1, 1 // Assigning to the named return variable
 	return      // Implicitly returns "x" and "y"

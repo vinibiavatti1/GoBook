@@ -7,20 +7,24 @@ package gof
 
 import "fmt"
 
-// Declaring a Struct
-type Singleton struct {
+// Singleton Struct
+// The struct below should have only an unique instance in our application.
+// To ensure that, we will use the singleton pattern to create a single instance of this struct.
+type ServiceManager struct {
 	ID int
 }
 
-// Declaring the Singleton Instance
+// Singleton Instance
 // Declaring a package-level variable to hold the single instance of the Singleton struct.
-var instance *Singleton
+var instance *ServiceManager
 
-// Declaring a Constructor
-// The NewSingleton function returns the single instance of the Singleton struct.
-func NewSingleton() *Singleton {
+// Singleton Constructor
+// Since we need only one instance of the ServiceManager struct, we will create a constructor function
+// that returns the instance.
+// If the instance is nil, we will create a new instance of the ServiceManager struct.
+func NewServiceManager() *ServiceManager {
 	if instance == nil {
-		instance = &Singleton{ID: 1}
+		instance = &ServiceManager{ID: 1}
 	}
 	return instance
 }
@@ -30,11 +34,11 @@ func NewSingleton() *Singleton {
 func TestSingleton() {
 
 	// Getting the Singleton instance
-	// We will call the NewSingleton function twice to get two instances of the Singleton struct.
-	singleton1 := NewSingleton()
-	singleton2 := NewSingleton()
+	// We will call the NewSingleton function twice to validate if both instances are the same.
+	sm1 := NewServiceManager()
+	sm2 := NewServiceManager()
 
 	// Check
 	// We can see that both instances have the same ID, which means they are indeed the same instance.
-	fmt.Println("Singleton Instance IDs:", singleton1.ID, singleton2.ID) // Output: Singleton Instance IDs: 1 1
+	fmt.Println("Singleton Instance IDs:", sm1.ID, sm2.ID) // Output: Singleton Instance IDs: 1 1
 }

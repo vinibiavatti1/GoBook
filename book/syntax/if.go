@@ -138,7 +138,7 @@ func IfElse() {
 func IfWithDeclarations() {
 
 	// If with Declaration
-	// We can declare a variable inside the if condition.
+	// We can declare a variable inside the if condition (Like in for statements).
 	// In this case, "x" is only available inside the if block.
 	if x := true; x {
 		fmt.Println("x == true") // Output: x == true

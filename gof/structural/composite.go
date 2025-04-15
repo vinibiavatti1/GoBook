@@ -4,7 +4,7 @@
 // Composite lets clients treat individual objects and compositions of objects uniformly.
 // In other words, it allows you to create a tree structure where each node can be either a leaf or a composite.
 
-package gof
+package structural
 
 import "fmt"
 

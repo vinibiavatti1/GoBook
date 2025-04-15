@@ -3,7 +3,7 @@
 // the type of objects that will be created.
 // Since Go does not support OOP, this pattern looks similar to the abstract factory pattern.
 
-package gof
+package creational
 
 // Model
 // The model below is a struct that represents an Input.

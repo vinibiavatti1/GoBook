@@ -3,7 +3,7 @@
 // It defines an object that encapsulates how a set of objects interact.
 // This pattern is useful when you want to reduce the complexity of communication between multiple objects.
 
-package gof
+package behavioral
 
 import "fmt"
 

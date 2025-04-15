@@ -5,7 +5,7 @@
 // existing one.
 // Usually, to implement the Prototype pattern, we need to implement a clone method.
 
-package gof
+package creational
 
 import "fmt"
 

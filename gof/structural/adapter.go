@@ -2,7 +2,7 @@
 // The adapter is a structural design pattern that allows incompatible interfaces to work together.
 // It acts as a bridge between two incompatible interfaces, allowing them to communicate.
 
-package gof
+package structural
 
 // Protocols
 // The protocols below define the interfaces for writers.

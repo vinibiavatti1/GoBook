@@ -3,7 +3,7 @@
 // specifying their concrete classes.
 // Since Go does not support OOP, this pattern looks similar to the factory method pattern.
 
-package gof
+package creational
 
 import "fmt"
 

@@ -3,7 +3,7 @@
 // of similar objects efficiently.
 // It is used to minimize memory usage by sharing common parts of state between multiple objects.
 
-package gof
+package structural
 
 import "fmt"
 

@@ -2,7 +2,7 @@
 // The Facade pattern provides a simplified interface to a complex subsystem.
 // It defines a higher-level interface that makes the subsystem easier to use.
 
-package gof
+package structural
 
 // Complex Subsystem
 // We will declare a complex subsystem (couple of interfaces) that will be used by the Facade.

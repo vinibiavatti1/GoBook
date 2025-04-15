@@ -3,7 +3,7 @@
 // This is useful when exactly one object is needed to coordinate actions across the system.
 // In Go, we can implement the Singleton pattern using a package-level variable and a function to access it.
 
-package gof
+package creational
 
 import "fmt"
 

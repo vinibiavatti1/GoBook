@@ -3,7 +3,7 @@
 // allowing the two to vary independently. It is used to separate the abstraction from the implementation,
 // enabling you to change the implementation without affecting the abstraction and vice versa.
 
-package gof
+package structural
 
 import (
 	"fmt"

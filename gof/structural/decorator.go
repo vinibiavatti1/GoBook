@@ -4,7 +4,7 @@
 // It is a flexible alternative to subclassing for extending functionality.
 // In Go, the Decorator pattern can be implemented using interfaces and struct embedding.
 
-package gof
+package structural
 
 import "fmt"
 

@@ -2,7 +2,7 @@
 // The Proxy pattern is a structural design pattern that provides an object representing another object.
 // It acts as a surrogate or placeholder for another object to control access to it.
 
-package gof
+package structural
 
 // Protocol
 // We will define this interface to represent a common protocol.
@@ -57,7 +57,7 @@ func TestProxy() {
 	ds.Query("abc") // Computed
 
 	cds := &CachedDataService{
-		Cache:   make(map[string]string),
+		Cache:   map[string]string{},
 		Service: ds,
 	}
 	cds.Query("abc") // Computed

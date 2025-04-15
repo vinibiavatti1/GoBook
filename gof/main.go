@@ -12,5 +12,5 @@ import "gof/behavioral"
 // Main
 // We can use this main to call the patterns in the respective files and test them.
 func main() {
-	behavioral.TestIterator()
+	behavioral.TestTemplateMethod()
 }

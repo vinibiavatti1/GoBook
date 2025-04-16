@@ -15,16 +15,6 @@ Go is known for its clean syntax and minimalistic design, making it easy to read
 ### Guide
 This guide is structured to support both beginners and advanced developers who want to deepen their knowledge of Go through real-world examples, code snippets, and practical explanations of Go’s standard library and best practices. It serves as a reference for Go developers, a practical guide for beginners, and a foundation for those starting to study the language.
 
-```go
-package main
-
-import "fmt"
-
-func main() {
-    fmt.Println("Let's GO!")
-}
-```
-
 ### What's Included
 - Key Go concepts and idioms
 - Go syntax explanations
@@ -37,3 +27,13 @@ func main() {
 - Language: [Go (go1.21+)](https://go.dev/)
 - IDE: [VSCode](https://code.visualstudio.com/)
 - IDE Extension: [Go Extension](https://code.visualstudio.com/docs/languages/go)
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Let's GO!")
+}
+```

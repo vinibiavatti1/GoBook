@@ -11,7 +11,9 @@ package project
 // The module name will be the base for all packages imports.
 // Note: Usually, the module name follows the format below:
 // github.com/<username>/<repository-name>.
-var _ = "go mod init <module-name>"
+var _ = `
+go mod init <module-name>
+`
 
 // The go.mod File
 // The go.mod file defines the module's path and its dependencies.
@@ -41,33 +43,17 @@ exclude (
 )
 `
 
-// Adding Dependencies
-// Dependencies are registered in the go.mod file.
-// To add a dependency, you can use the go get command.
-// The go get command will add the dependency to the go.mod file and download the dependency.
-// If version is not specified, the latest version will be used.
-var _ = "go get <module-name>@<version>"
-
-// Updating Dependencies
-// To update a dependency, we can use the go get command with the -u flag.
-// The -u flag will update the dependency to the latest version.
-var _ = "go get -u <module-name>"
-
-// Removing Dependencies
-// To remove a dependency, we can use the go mod tidy command.
-// The go mod tidy command will remove any dependencies that are not used in the module.
-var _ = "go mod tidy"
-
-// Installing Dependencies
-// Go install all the dependencies in the go.mod file automatically when the application is built or run.
-var _ = "go run ."
-
-// Workspaces
+// Creating a Go Workspace
 // A workspace is a collection of modules, and it is defined by a go.work file.
 // The difference between a module and a workspace is that a module is a single unit of code,
 // while a workspace is a collection of modules.
+var _ = `
+go work init <module-name> <module-name> ...
+`
+
+// The go.work File
 // The go.work file has the statements below which is used to configure the workspace.
-// To create a workspace, we need to create a directory for our workspace and run the "go work init" command.
+// It is similar to the go.mod file, but it is used to define a workspace instead of a module.
 var _ = `
 go: <version>
 

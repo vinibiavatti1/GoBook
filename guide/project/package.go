@@ -10,19 +10,25 @@ package project
 // To declare a package, we use the "package" statement.
 // The package statement must be the first line in the file.
 // Usually, the package name is the same as the directory name.
-var _ = "package user"
+var _ = `
+package user
+`
 
 // Main Package
 // The main package is the entry point of a Go program.
 // When the application is run, the main package is searched for the main function.
-var _ = "package main"
+var _ = `
+package main
+`
 
 // Importing a Single Package
 // To import a single package, we use the "import" statement.
 // The import statement must be after the package statement.
 // The imported package will be referenced by its name:
 // Ex: fmt.Println().
-var _ = `import "fmt"`
+var _ = `
+import "fmt"
+`
 
 // Importing Multiple Packages
 // To import multiple packages, we use parentheses.
@@ -66,4 +72,6 @@ import (
 // Let's suppose we have a module named "github.com/user/app/directory/math".
 // To import the math package, we have to use the following import statement:
 // Note: Even though the directory has no package definition, the package name is the same as the directory name.
-var _ = `import "github.com/user/app/directory/math"`
+var _ = `
+import "github.com/user/app/directory/math"
+`

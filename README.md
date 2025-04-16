@@ -28,6 +28,11 @@ This guide is structured to support both beginners and advanced developers who w
 - IDE: [VSCode](https://code.visualstudio.com/)
 - IDE Extension: [Go Extension](https://code.visualstudio.com/docs/languages/go)
 
+### Useful Links
+- [Go Language](https://go.dev/)
+- [Learn X in Y minutes (Go)](https://learnxinyminutes.com/go/)
+- [Refactoring Guru](https://refactoring.guru/design-patterns)
+
 ```go
 package main
 
@@ -37,8 +42,3 @@ func main() {
     fmt.Println("Let's Go!") // Or Let's Golang!
 }
 ```
-
-### Useful Links
-- [Go Language](https://go.dev/)
-- [Learn X in Y minutes (Go)](https://learnxinyminutes.com/go/)
-- [Refactoring Guru](https://refactoring.guru/design-patterns)

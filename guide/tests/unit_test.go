@@ -40,5 +40,5 @@ var _ = "go test"
 // The output of the test will look something like this:
 var _ = `
 PASS
-ok      book/tests      1.703s
+ok      guide/tests      1.703s
 `

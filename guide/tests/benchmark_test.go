@@ -41,9 +41,9 @@ var _ = "go test -bench ."
 var _ = `
 goos: windows
 goarch: amd64
-pkg: book/tests
+pkg: guide/tests
 cpu: 13th Gen Intel(R) Core(TM) i5-1340P
 BenchmarkConcatWithPlus-16      120189393                9.958 ns/op
 PASS
-ok      book/tests      3.961s
+ok      guide/tests      3.961s
 `

@@ -6,7 +6,7 @@
 // - Benchmark test files should be named with the _test suffix, e.g., mypackage_test.go;
 // - Benchmark test functions should start with the word Benchmark and take a pointer to testing.B as an argument.
 
-package tests
+package testing
 
 import (
 	"testing"
@@ -41,9 +41,9 @@ var _ = "go test -bench ."
 var _ = `
 goos: windows
 goarch: amd64
-pkg: guide/tests
+pkg: guide/testing
 cpu: 13th Gen Intel(R) Core(TM) i5-1340P
 BenchmarkConcatWithPlus-16      120189393                9.958 ns/op
 PASS
-ok      guide/tests      3.961s
+ok      guide/testing      3.961s
 `

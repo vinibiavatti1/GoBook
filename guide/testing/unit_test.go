@@ -6,7 +6,7 @@
 // - Test files should be named with the _test suffix, e.g., mypackage_test.go;
 // - Test functions should start with the word Test and take a pointer to testing.T as an argument.
 
-package tests
+package testing
 
 import (
 	"testing"
@@ -40,5 +40,5 @@ var _ = "go test"
 // The output of the test will look something like this:
 var _ = `
 PASS
-ok      guide/tests      1.703s
+ok      guide/testing      1.703s
 `

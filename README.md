@@ -34,6 +34,11 @@ package main
 import "fmt"
 
 func main() {
-    fmt.Println("Let's GO!")
+    fmt.Println("Let's Go!") // Or Let's Golang!
 }
 ```
+
+### Useful Links
+- [Go Language](https://go.dev/)
+- [Learn X in Y minutes (Go)](https://learnxinyminutes.com/go/)
+- [Refactoring Guru](https://refactoring.guru/design-patterns)

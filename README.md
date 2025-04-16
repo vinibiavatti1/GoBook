@@ -2,6 +2,7 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/1920px-Go_Logo_Blue.svg.png" width="120px" />
     <h1 align="center">Go Guide</h1>
     <p align="center">Your go-to guide for learning Go from scratch!</p>
+    <a href="https://github.com/vinibiavatti1/GoBook/tree/main/guide" align="center">-- Guide --</a>
 </p>
 
 ### Purpose

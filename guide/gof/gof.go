@@ -5,10 +5,4 @@
 // While Go is not strictly object-oriented, many of these patterns can still be applied in Go's idiomatic way.
 // The patterns are divided into three categories: creational, structural, and behavioral.
 
-package main
-
-// Main
-// We can use this main to call the patterns in the respective files and test them.
-func main() {
-
-}
+package gof

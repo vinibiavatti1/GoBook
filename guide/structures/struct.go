@@ -1,5 +1,7 @@
 // Struct
-// Structs are composite data types that allow grouping different data together into a single unit.
+// Structs are composite data types that group together variables (fields) under a single name.
+// They are used to create complex data types that can represent real-world entities.
+// Structs can contain fields of different types, including other structs, arrays, and slices.
 
 package datatypes
 
@@ -11,7 +13,8 @@ import (
 
 // Defining a Struct
 // We use the "struct" keyword to define structs.
-// The struct below has two public fields: Name and Surname.
+// The struct below has two fields: "Name" and "surname".
+// The first letter of the field name determines its visibility: if it is capitalized, it is public; if not, it is private.
 type Person struct {
 	Name    string // Public
 	surname string // Private (Not capitalized)
@@ -29,7 +32,7 @@ type Employee struct {
 
 // Constructors
 // Constructors are methods responsible for creating struct instances.
-// Usually, constructors have their name with the "New" prefix.
+// As a convention, they are named "New" followed by the struct name.
 // They are used to initialize the struct fields and return a pointer to the struct.
 func NewEmployee(name, surname string, salary float64) *Employee {
 	return &Employee{
@@ -42,7 +45,8 @@ func NewEmployee(name, surname string, salary float64) *Employee {
 }
 
 // Methods
-// Methods associate functions with a struct.
+// Methods are functions that are associated with a struct type.
+// They are defined using the "func" keyword, followed by the receiver type (the struct type) and the method name.
 // In this example, the method "FullName" is associated with the "Employee" struct and takes a pointer receiver (e *Employee).
 func (e *Employee) FullName() string {
 	return e.Name + e.surname
@@ -50,8 +54,8 @@ func (e *Employee) FullName() string {
 
 // Getterns and Setters
 // Getters and setters are methods that allow access to private fields.
-// In this example, the "Name" method is a getter for the "name" field in the "Person" struct.
-// The "SetName" method is a setter for the "name" field.
+// In this example, the "Surname" method is a getter for the "surname" field in the "Person" struct.
+// The "SetSurname" method is a setter for the "surname" field.
 // Note: In Go, we don't use the "Get" prefix for getters.
 func (p *Person) Surname() string { // Getter
 	return p.surname
@@ -75,11 +79,12 @@ func UsingStructs() {
 	}
 
 	// Creating an Instance Using Constructor Method
-	// We can also use the constructor method to create an instance of Employee
+	// We can also use the constructor method to create an instance of Employee.
 	employee2 := NewEmployee("John", "Duo", 2000.0)
 
 	// Accessing Public Data
 	// Embedded fields can be accessed directly from the "Employee" struct.
+	// Note that the "Name" field belongs to the "Person" struct, but it can be accessed directly from the "Employee" struct.
 	name1 := employee1.Person.Name // Accessing emdebbed
 	name2 := employee1.Name        // Accessing directly
 	fmt.Println(name1, name2)      // Output: John John
@@ -90,28 +95,21 @@ func UsingStructs() {
 	fmt.Println("fullname:", fullname) // Output: fullname: JohnDuo
 
 	// Acessing Private Data
-	// Since the "Surname" field is private, it can be accessed only by public methods
+	// Since the "Surname" field is private, it can be accessed only by public methods.
+	// Note that the "Surname" method belongs to the "Person" struct, but it can be accessed directly from the "Employee" struct.
 	surname1 := employee1.Person.Surname() // Accessing emdebbed
 	surname2 := employee1.Surname()        // Accessing directly
 	fmt.Println(surname1, surname2)        // Output: Duo Duo
 
 	// Mutating Data
-	// Changing the "Notes" field of the "Employee" struct.
-	employee1.Salary = 2500.0
+	// We can assign a new value to a public field of the struct.
+	// We can also set the value of embedded fields directly.
+	employee1.Salary = 2500.0                // Setting Salary
+	employee1.Name = "John Doe"              // Setting Name directly
 	fmt.Println("Salary:", employee1.Salary) // Output: Salary: 2500.0
 
-	// Anonymous Structs
-	// Anonymous structs are structs without a name.
-	// If we don't need to reuse a struct, we can define and create an instance at the same time.
-	person := struct {
-		Name string
-	}{
-		Name: "John Duo",
-	}
-	fmt.Println("person:", person) // Output: person: {John Duo}
-
 	// Local Structs
-	// We can define a struct inside a function.
+	// We can declare a struct inside a function.
 	// This struct will only be available inside the function.
 	type user struct {
 		Name string
@@ -123,6 +121,17 @@ func UsingStructs() {
 		Name: "John Duo",
 	}
 	fmt.Println("otherPerson:", _user) // Output: otherPerson: {John Duo}
+
+	// Anonymous Structs
+	// We can create anonymous structs, which are structs without a name.
+	// They are useful for quick and temporary data structures.
+	// Note that the struct below is not named, but it has fields.
+	person := struct {
+		Name string
+	}{
+		Name: "John Duo",
+	}
+	fmt.Println("person:", person) // Output: person: {John Duo}2
 }
 
 // Struct Tags

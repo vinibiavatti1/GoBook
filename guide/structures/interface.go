@@ -22,12 +22,11 @@ type OtherPrinter interface {
 }
 
 // Nil Interface
-// Go allows to assign nil to an interface.
-// This means that the interface does not hold any value.
+// Interfaces can be nil, which means that they do not hold any value.
 var _ Printer = nil
 
 // Defining a Struct
-// Methods are implemented on structs.
+// Below we will define a struct that to implement the Printer interface.
 type Data struct {
 	Key   string
 	Value string
@@ -36,6 +35,7 @@ type Data struct {
 // Implementing Interface
 // A type implements an interface by implementing its methods.
 // The interface is implicitly implemented by any type that implements all the methods.
+// We don't need to explicitly declare that a type implements an interface.
 func (d *Data) Print() {
 	fmt.Printf("%s: %s", d.Key, d.Value)
 }
@@ -52,11 +52,11 @@ func CheckInterfaceImplementation() {
 	// Since Data implements the Printer interface, we can call the Print method on it.
 	data.Print() // Output: A: 1
 
-	// Checking Type
-	// As we can see, we can add Data to a slice of Printer.
-	// This is because Data implements the Printer interface.
-	slc := []Printer{data}
-	fmt.Println(slc) // Output: [&{A 1}]
+	// Ensuring Interface Implementation
+	// To ensure that the Data struct implements the Printer interface, we can use a type assertion.
+	// This will cause a compile-time error if Data does not implement Printer.
+	// This is a common pattern in Go to ensure that a type implements an interface.
+	var _ Printer = (*Data)(nil) // This will not cause an error if Data implements Printer.
 }
 
 // Local Interfaces
@@ -66,6 +66,7 @@ func LocalInterfaces() {
 	// Creating an Instance
 	// We will create an instance of the Data struct.
 	data := &Data{Key: "A", Value: "1"}
+	fmt.Println("Data:", data) // Output: Data: &{A 1}
 
 	// Defining an Interface
 	// We can define an interface inside a function.
@@ -74,8 +75,8 @@ func LocalInterfaces() {
 		Print()
 	}
 
-	// Checking Type
-	// Since otherPrinter is the same as Printer, we can assign data to it.
-	slc := []otherPrinter{data}
-	fmt.Println(slc) // Output: [&{A 1}]
+	// Ensuring Interface Implementation
+	// Knowing that the "otherPrinter" interface has the same signature as the "Printer" interface, we can
+	// check if the Data struct implements it.
+	var _ otherPrinter = (*Data)(nil) // This will not cause an error if Data implements otherPrinter.
 }

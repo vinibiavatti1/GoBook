@@ -4,6 +4,14 @@
 
 package main
 
+import _ "unsafe"
+
 func main() {
 
 }
+
+//go:linkname Abc
+func Abc() int
+
+//go:linkname Test
+func Test() int

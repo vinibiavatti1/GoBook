@@ -26,6 +26,16 @@ var _ = "httphandler"
 // Use the Go extension: ".go".
 var _ = "httphandler.go"
 
+// Singular Names
+// Use singular names for specific files like main.go, repository.go, config.go, etc.
+var _ = "main.go"
+var _ = "repository.go"
+
+// Plural Names
+// Use plural names for data collections, slices, models, enums, etc.
+var _ = "models.go"
+var _ = "enums.go"
+
 // Test Files
 // Use only lowercase letters.
 // Use the "_test" suffix: "<name>_test.go"
@@ -40,6 +50,10 @@ var _ = "httphandler"
 // Use uppercase letters.
 var ID = 1
 var HTTPClient = 1
+
+// Indicators
+// Use Prefixes to indicate the context of a function/variable.
+const RoleAdmin = "admin"
 
 // Keywords
 // Use the underscore "_" suffix for reserved names.
